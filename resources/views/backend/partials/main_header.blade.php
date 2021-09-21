@@ -25,6 +25,19 @@
                                 <div class="user-info d-none d-xl-block">
                                     <div class="user-status user-status-active">Quản trị viên</div>
                                     <div class="user-name dropdown-indicator">Lam Vu Hoang</div>
+                                    <a class="nav-link dropdown-toggle" href="{{ route('logout.admin') }}" onclick="event.preventDefault();
+                                    document.getElementById('logout-form').submit();">
+                                    
+                                    
+                                    {{ __('Đăng xuất') }} 
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    
+
+                                    <form id="logout-form" action="{{ route('logout.admin') }}" method="POST" class="d-none">
+                                        @csrf
+                                    </form>
+                                </div>
                                 </div>
                             </div>
                         </a>
