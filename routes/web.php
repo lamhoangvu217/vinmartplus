@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use Illuminate\Support\Facades\Auth;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,16 +19,15 @@ Route::get('/', function () {
 Route::get('/shopping', 'Frontend\ProductController@product')->name('product');
 Route::get('/about', 'Frontend\AboutController@about')->name('about');
 Route::get('/product_detail', 'HomeController@productDetail')->name('productDetail');
-Route::get('/login', 'HomeController@authenticate')->name('authenticate'); 
-Route::get('/cart', 'Frontend\CartController@cart')->name('cart'); 
-Route::get('/checkout', 'HomeController@checkout')->name('checkout'); 
+Route::get('/login', 'HomeController@authenticate')->name('authenticate');
+Route::get('/cart', 'Frontend\CartController@cart')->name('cart');
+Route::get('/checkout', 'HomeController@checkout')->name('checkout');
 
-Route::get('/product', 'Backend\ProductController@product'); 
-Route::get('/detail/{id}', 'Frontend\ProductController@detail')->name('detail'); 
+Route::get('/product', 'Backend\ProductController@product');
+Route::get('/detail/{id}', 'Frontend\ProductController@detail')->name('detail');
 
 
 
-Route::get('/admin', 'Backend\DashboardController@index')->name('admin.index'); 
 
 Auth::routes();
 
@@ -36,7 +35,15 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 
-// admin
-Route::get('/admin/home', 'Backend\AdminController@index');
-Route::get('/admin', 'Admin\LoginController@showLoginForm')->name('login.admin');
-Route::post('/admin', 'Admin\LoginController@login');
+
+Route::group(['prefix' => 'admin'], function () {
+    // admin
+    // Route::get('/home', 'Backend\AdminController@index');
+    Route::get('login', 'Admin\LoginController@showLoginForm')->name('login.admin');
+    Route::post('login', 'Admin\LoginController@login');
+    Route::post('logout', 'Admin\LoginController@logout')->name('logout.admin');
+});
+Route::group(['middleware' => ['auth:admin']], function () {
+    Route::get('/admin', 'Backend\DashboardController@index')->name('admin.index');
+    Route::get('/dashboard', 'Backend\DashboardController@index')->name('admin.index');
+});

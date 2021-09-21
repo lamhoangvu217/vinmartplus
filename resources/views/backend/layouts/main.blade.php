@@ -12,8 +12,8 @@
     <!-- Page Title  -->
     <title>Admin Area</title>
     <!-- StyleSheets  -->
-    <link rel="stylesheet" href="{{asset('public/backend/css/dashlite.css?ver=2.4.0')}}">
-    <link id="skin-default" rel="stylesheet" href="{{asset('public/backend/css/theme.css?ver=2.4.0')}}">
+    <link rel="stylesheet" href="{{asset('/backend/css/dashlite.css?ver=2.4.0')}}">
+    <link id="skin-default" rel="stylesheet" href="{{asset('/backend/css/theme.css?ver=2.4.0')}}">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
 </head>
 
@@ -118,9 +118,9 @@
     </div>
     <!-- app-root @e -->
     <!-- JavaScript -->
-    <script src="{{asset('public/backend/js/bundle.js?ver=2.4.0')}}"></script>
-    <script src="{{asset('public/backend/js/scripts.js?ver=2.4.0')}}"></script>
-    <script src="{{asset('public/backend/js/charts/chart-ecommerce.js?ver=2.4.0')}}"></script>
+    <script src="{{asset('/backend/js/bundle.js?ver=2.4.0')}}"></script>
+    <script src="{{asset('/backend/js/scripts.js?ver=2.4.0')}}"></script>
+    <script src="{{asset('/backend/js/charts/chart-ecommerce.js?ver=2.4.0')}}"></script>
 </body>
 
 </html>
