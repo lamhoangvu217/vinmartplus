@@ -37,8 +37,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 
 Route::group(['prefix' => 'admin'], function () {
-    // admin
-    // Route::get('/home', 'Backend\AdminController@index');
+    // Linh sua web.php
     Route::get('login', 'Admin\LoginController@showLoginForm')->name('login.admin');
     Route::post('login', 'Admin\LoginController@login');
     Route::post('logout', 'Admin\LoginController@logout')->name('logout.admin');
