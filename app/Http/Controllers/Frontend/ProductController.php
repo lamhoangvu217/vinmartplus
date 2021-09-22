@@ -9,11 +9,14 @@ use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
-    public function product() {
+    public function product()
+    {
         $products = Product::orderBy('price', "asc")->get();
         return view('frontend.contents.shopping', compact('products'));
     }
-    public function detail($id) {
+
+    public function detail($id)
+    {
         $product = Product::find($id);
         $images = $product->images;
         return view('frontend.contents.product_detail', compact('product', 'images'));
