@@ -38,21 +38,34 @@
 
                         @if (Route::has('login'))
                             @auth
-                                {{-- <div class="header-action-style">
-                                    <a title="Logout" href="{{ route('login') }}"><i class="pe-7s-user"></i></a>
-                                </div> --}}
+                                <div class="dropdown" style="margin-right: 13px;">
+                                    <a class="" href="#" role="button" id="dropdownMenuLink"
+                                        data-bs-toggle="dropdown">
+                                        <span>
+                                            <img class="thumb-nail rounded-circle"
+                                                src="https://upload.wikimedia.org/wikipedia/vi/thumb/d/d3/Starbucks_Corporation_Logo_2011.svg/1024px-Starbucks_Corporation_Logo_2011.svg.png"
+                                                alt="" width="21px">
+                                        </span>
+
+                                    </a>
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                        @csrf
+                                    </form>
+                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                        <li><a class="dropdown-item" href="#">Profile</a></li>
+                                        <li><a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                document.getElementById('logout-form').submit();">Đăng xuất</a></li>
+                                    </ul>
+                                </div>
+                            @else
                                 <div class="header-action-style">
-                                    <img class="thumb-nail rounded-circle"
-                                        src="https://canthuematbang.com/uploads/tin-tuc/sieu-thi-mini-vinmart-can-thue-mat-bang-hcm.jpg"
-                                        alt="" width="35px">
+                                    <a title="Login Register" href="{{ route('login') }}"><i class="pe-7s-user"></i></a>
                                 </div>
                             @endauth
 
 
                         @endif
-                        <div class="header-action-style">
-                            <a title="Login Register" href="{{ route('login') }}"><i class="pe-7s-user"></i></a>
-                        </div>
+
 
                         <div class="header-action-style header-action-cart">
                             <a class="" href="{{ route('cart') }}"><i class="pe-7s-shopbag"></i>
