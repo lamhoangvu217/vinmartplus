@@ -1,7 +1,7 @@
 <div class="nk-sidebar nk-sidebar-fixed is-light " data-content="sidebarMenu">
     <div class="nk-sidebar-element nk-sidebar-head">
         <div class="nk-sidebar-brand">
-            <a href="html/index.html" class="logo-link nk-sidebar-logo">
+            <a href="/admin" class="logo-link nk-sidebar-logo">
                 <img class="logo-img" src="https://upload.wikimedia.org/wikipedia/vi/7/75/Vinmart_logo_sieu_thi.png"  alt="logo">
                 
             </a>
@@ -34,31 +34,20 @@
                         </a>
                     </li><!-- .nk-menu-item -->
                     <li class="nk-menu-item">
-                        <a href="html/ecommerce/customers.html" class="nk-menu-link">
+                        <a href="{{ route('customer.index') }}" class="nk-menu-link">
                             <span class="nk-menu-icon"><i class="fas fa-user-friends"></i></span>
                             <span class="nk-menu-text">Khách hàng</span>
                         </a>
                     </li><!-- .nk-menu-item -->
 
                     <li class="nk-menu-item">
-                        <a href="html/ecommerce/Employee.html" class="nk-menu-link">
+                        <a href="{{ route('employee.index') }}" class="nk-menu-link">
                             <span class="nk-menu-icon"><i class="fas fa-user-tie"></i></span>
                             <span class="nk-menu-text">Nhân viên</span>
                         </a>
                     </li><!-- .nk-menu-item -->
 
-                    <li class="nk-menu-item">
-                        <a href="html/ecommerce/settings.html" class="nk-menu-link">
-                            <span class="nk-menu-icon"><i class="fas fa-cogs"></i></span>
-                            <span class="nk-menu-text">Cài đặt</span>
-                        </a>
-                    </li><!-- .nk-menu-item -->
-                    <li class="nk-menu-item">
-                        <a href="html/ecommerce/integration.html" class="nk-menu-link">
-                            <span class="nk-menu-icon"><i class="fab fa-yandex-international"></i></span>
-                            <span class="nk-menu-text">Bên thứ ba</span>
-                        </a>
-                    </li><!-- .nk-menu-item -->
+                   
                     
                 </ul><!-- .nk-menu -->
             </div><!-- .nk-sidebar-menu -->

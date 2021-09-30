@@ -21,9 +21,9 @@
                             <div class="user-toggle">
                                 
                                 <div class="user-info d-none d-xl-block">
-                                    <div class="user-status user-status-active">Quản trị viên</div>
-                                    <div class="user-name dropdown-indicator">  {{ Auth::user()->name }}</div>
-                                    <a class="nav-link dropdown-toggle" href="{{ route('logout.admin') }}" onclick="event.preventDefault();
+                                   
+                                    <div class="user-name ">{{ Auth::user()->name }}</div>
+                                <a class="nav-link btn btn-danger ml-4" style="color: #fff;" href="{{ route('logout.admin') }}" onclick="event.preventDefault();
                                     document.getElementById('logout-form').submit();">
                                     
                                     
