@@ -905,13 +905,13 @@ textarea.form-control, .dual-listbox textarea.dual-listbox__search { height: aut
 
 a.btn.disabled, .dual-listbox a.disabled.dual-listbox__button, fieldset:disabled a.btn, fieldset:disabled .dual-listbox a.dual-listbox__button, .dual-listbox fieldset:disabled a.dual-listbox__button { pointer-events: none; }
 
-.btn-primary { color: #fff; background-color: #854fff; border-color: #854fff; }
+.btn-primary { color: #fff; background-color: #d63031; border-color: #d63031; }
 
-.btn-primary:hover { color: #fff; background-color: #6a29ff; border-color: #621cff; }
+.btn-primary:hover { color: #fff; background-color: #d63031; border-color: #d63031; }
 
-.btn-primary:focus, .btn-primary.focus { color: #fff; background-color: #6a29ff; border-color: #621cff; box-shadow: 0 0 0 0.2rem rgba(151, 105, 255, 0.5); }
+.btn-primary:focus, .btn-primary.focus { color: #fff; background-color: #d63031; border-color: #d63031; box-shadow: 0 0 0 0.2rem rgba(151, 105, 255, 0.5); }
 
-.btn-primary.disabled, .btn-primary:disabled { color: #fff; background-color: #854fff; border-color: #854fff; }
+.btn-primary.disabled, .btn-primary:disabled { color: #fff; background-color: #d63031; border-color: #d63031; }
 
 .btn-primary:not(:disabled):not(.disabled):active, .btn-primary:not(:disabled):not(.disabled).active, .show > .btn-primary.dropdown-toggle { color: #fff; background-color: #621cff; border-color: #590fff; }
 

@@ -43,6 +43,15 @@ Route::group(['prefix' => 'admin'], function () {
     Route::post('logout', 'Admin\LoginController@logout')->name('logout.admin');
 });
 Route::group(['middleware' => ['auth:admin']], function () {
-    Route::get('/admin', 'Backend\DashboardController@index')->name('admin.index');
+    Route::get('/admin', 'Backend\DashboardController@index');
     Route::get('/dashboard', 'Backend\DashboardController@index')->name('admin.index');
+    Route::group(['prefix' => 'admin'], function () {
+        Route::group(['prefix' => 'customer'], function () {
+            Route::get('index', 'Backend\CustomerController@index')->name('customer.index');
+        });
+        Route::group(['prefix' => 'employee'], function () {
+            Route::get('index', 'Backend\EmployeeController@index')->name('employee.index');
+            Route::get('create', 'Backend\EmployeeController@create')->name('employee.create');
+        });
+    });
 });

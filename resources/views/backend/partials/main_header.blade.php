@@ -21,9 +21,9 @@
                             <div class="user-toggle">
                                 
                                 <div class="user-info d-none d-xl-block">
-                                    <div class="user-status ">Quản trị viên</div>
+                                    {{-- <div class="user-status mr-3 mt-1" style="color: #6c5ce7;">Quản trị viên</div> --}}
                                     <div class="user-name ">Lam Vu Hoang</div>
-                                <a class="nav-link dropdown-toggle" href="{{ route('logout.admin') }}" onclick="event.preventDefault();
+                                <a class="nav-link btn btn-danger ml-4" style="color: #fff;" href="{{ route('logout.admin') }}" onclick="event.preventDefault();
                                     document.getElementById('logout-form').submit();">
                                     
                                     
