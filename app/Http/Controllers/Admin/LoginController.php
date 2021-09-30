@@ -42,6 +42,7 @@ class LoginController extends Controller
     public function showLoginForm()
     {
         return view('admin.login');
+        // Lam Vu Hoang
     }
 
     /**

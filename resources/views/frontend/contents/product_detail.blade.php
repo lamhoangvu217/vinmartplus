@@ -14,14 +14,19 @@
                                         <div class="product-details-small-img">
                                             <img src="{{ $product->thumbnail }}" alt="Product Thumnail" />
                                         </div>
+
+
                                     </div>
                                     @foreach ($images as $image)
                                         <div class="swiper-slide">
+
                                             <div class="product-details-small-img">
                                                 <img src="{{ $image->path }}" alt="Product Thumnail" />
                                             </div>
                                         </div>
+
                                     @endforeach
+
                                 </div>
                             </div>
                             <div class="pd-prev pd-nav-style">
@@ -48,6 +53,7 @@
                                 @foreach ($images as $image)
 
                                     <div class="swiper-slide">
+
                                         <div class="easyzoom-style">
                                             <div class="easyzoom easyzoom--overlay">
                                                 <a href="{{ $image->path }}">
@@ -58,6 +64,7 @@
                                                 <i class="pe-7s-search"></i>
                                             </a>
                                         </div>
+
                                     </div>
 
                                 @endforeach
@@ -103,20 +110,20 @@
     <div class="description-review-area pb-85">
         <div class="container">
             <div class="description-review-topbar nav" data-aos="fade-up" data-aos-delay="200">
-                
+
                 <a data-bs-toggle="tab" href="#des-details2" class="">
                     Thông tin sản phẩm
                 </a>
                 <a data-bs-toggle="tab" href="#des-details3" class=""> Cách sử dụng </a>
             </div>
             <div class="tab-content">
-                
+
                 <div id="des-details2" class="tab-pane active">
                     <div class="product-description-content text-center">
                         <p data-aos="fade-up" data-aos-delay="200">
                             {{ $product->detail }}
                         </p>
-                        
+
                     </div>
                 </div>
                 <div id="des-details3" class="tab-pane">
