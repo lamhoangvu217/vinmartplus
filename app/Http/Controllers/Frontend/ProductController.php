@@ -19,6 +19,7 @@ class ProductController extends Controller
     {
         $product = Product::find($id);
         $images = $product->images;
+        // return $images;
         return view('frontend.contents.product_detail', compact('product', 'images'));
     }
 }

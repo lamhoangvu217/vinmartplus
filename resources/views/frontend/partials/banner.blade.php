@@ -44,7 +44,7 @@
               <div class="btn-style-3 btn-hover">
                 <a
                   class="btn hover-border-radius"
-                  href="product-details.html"
+                  href="/shopping"
                   >Shop Now</a
                 >
               </div>
@@ -65,7 +65,7 @@
               <div class="btn-style-3 btn-hover">
                 <a
                   class="btn hover-border-radius"
-                  href="product-details.html"
+                  href="/shopping"
                   >Shop Now</a
                 >
               </div>

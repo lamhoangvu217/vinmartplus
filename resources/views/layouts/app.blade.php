@@ -59,7 +59,7 @@
                                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
                                 </a>
-                                <a class="nav-link dropdown-toggle" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault();
                                     document.getElementById('logout-form').submit();">
                                     
                                     

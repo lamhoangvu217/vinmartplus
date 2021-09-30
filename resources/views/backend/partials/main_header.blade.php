@@ -5,7 +5,7 @@
                 <a href="#" class="nk-nav-toggle nk-quick-nav-icon" data-target="sidebarMenu"><em class="icon ni ni-menu"></em></a>
             </div>
             <div class="nk-header-brand d-xl-none">
-                <a href="html/index.html" class="logo-link">
+                <a href="/admin" class="logo-link">
                     <img class="logo-light logo-img" src="./images/logo.png" srcset="./images/logo2x.png 2x" alt="logo">
                     <img class="logo-dark logo-img" src="./images/logo-dark.png" srcset="./images/logo-dark2x.png 2x" alt="logo-dark">
                 </a>
@@ -19,13 +19,11 @@
                     <li class="dropdown user-dropdown">
                         <a href="#" class="dropdown-toggle mr-n1" data-toggle="dropdown">
                             <div class="user-toggle">
-                                <div class="user-avatar sm">
-                                    <em class="icon ni ni-user-alt"></em>
-                                </div>
+                                
                                 <div class="user-info d-none d-xl-block">
-                                    <div class="user-status user-status-active">Quản trị viên</div>
-                                    <div class="user-name dropdown-indicator">Lam Vu Hoang</div>
-                                    <a class="nav-link dropdown-toggle" href="{{ route('logout.admin') }}" onclick="event.preventDefault();
+                                    <div class="user-status ">Quản trị viên</div>
+                                    <div class="user-name ">Lam Vu Hoang</div>
+                                <a class="nav-link dropdown-toggle" href="{{ route('logout.admin') }}" onclick="event.preventDefault();
                                     document.getElementById('logout-form').submit();">
                                     
                                     
@@ -44,12 +42,9 @@
                         <div class="dropdown-menu dropdown-menu-md dropdown-menu-right">
                             <div class="dropdown-inner user-card-wrap bg-lighter d-none d-md-block">
                                 <div class="user-card">
-                                    <div class="user-avatar">
-                                        <span>AB</span>
-                                    </div>
                                     <div class="user-info">
                                         <span class="lead-text">Lam Vu Hoang</span>
-                                        <span class="sub-text">info@softnio.com</span>
+                                        
                                     </div>
                                 </div>
                             </div>
