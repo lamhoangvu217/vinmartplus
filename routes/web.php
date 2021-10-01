@@ -20,7 +20,7 @@ Route::get('/shopping', 'Frontend\ProductController@product')->name('product');
 Route::get('/about', 'Frontend\AboutController@about')->name('about');
 Route::get('/product_detail', 'HomeController@productDetail')->name('productDetail');
 Route::get('/login', 'HomeController@authenticate')->name('authenticate');
-Route::get('/cart', 'Frontend\CartController@cart')->name('cart');
+
 Route::get('/checkout', 'HomeController@checkout')->name('checkout');
 
 Route::get('/product', 'Backend\ProductController@product');
@@ -55,3 +55,9 @@ Route::group(['middleware' => ['auth:admin']], function () {
         });
     });
 });
+
+    Route::get('cart', 'Frontend\CartController@cart')->name('cart');
+    Route::get('add/{id}', 'Frontend\CartController@CartAdd')->name('addtocart');
+    Route::get('delete/{id}','Frontend\CartController@CartRemove')->name('removefromcart');
+
+    

@@ -47,7 +47,8 @@
                                                 </button>
                                             </div>
                                             <div class="product-action-2-wrap">
-                                                <button class="product-action-btn-2" title="Add To Cart"><i class="pe-7s-cart"></i> Add to cart</button>
+                                                <a href="{{route('addtocart',$product->id)}}"  class="product-action-btn-2" title="Add To Cart" ><i class="pe-7s-cart"></i> Add to cart</a>
+
                                             </div>
                                         </div>
                                         <div class="product-content">

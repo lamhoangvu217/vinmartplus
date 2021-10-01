@@ -11,6 +11,7 @@
                                 <thead>
                                     <tr>
                                         <th class="width-thumbnail"></th>
+                                      
                                         <th class="width-name">Tên sản phẩm</th>
                                         <th class="width-price">Đơn giá</th>
                                         <th class="width-quantity">Số lượng</th>
@@ -19,23 +20,27 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @foreach ($data as $x )
+
                                     <tr>
+                                       
                                         <td class="product-thumbnail">
                                             <a href="product-details.html"><img src="assets/images/cart/cart-1.jpg" alt=""></a>
                                         </td>
                                         <td class="product-name">
-                                            <h5><a href="product-details.html">Stylish Swing Chair</a></h5>
+                                            <h5><a href="product-details.html">{{$x->name}}</a></h5>
                                         </td>
-                                        <td class="product-cart-price"><span class="amount">$120.00</span></td>
+                                        <td class="product-cart-price"><span class="amount">{{$x->price}}</span></td>
                                         <td class="cart-quality">
                                             <div class="product-quality">
-                                                <input class="cart-plus-minus-box input-text qty text" name="qtybutton" value="1">
+                                                <input class="cart-plus-minus-box input-text qty text" name="qtybutton" value="{{$x->qty}}">
                                             </div>
                                         </td>
-                                        <td class="product-total"><span>1.530.000 đ</span></td>
-                                        <td class="product-remove"><a href="#"><i class=" ti-trash "></i></a></td>
+                                        <td class="product-total"><span>{{$x->qty*$x->price}} đ</span></td>
+                                        <td class="product-remove"><a href="{{route('removefromcart',$x->rowId)}}"><i class=" ti-trash "></i></a></td>
                                     </tr>
                                     <tr>
+                                    @endforeach
                                         <td>
                                             
                                         </td>
@@ -49,7 +54,7 @@
                                         </td>
                                         <td colspan="2">
                                             <div class="grand-total">
-                                                <h4>Tổng <span>1.530.000 đ</span></h4>
+                                                <h4>Tổng <span>{{$total}}</span></h4>
                                             </div>
                                         </td>
                                     </tr>                                         
