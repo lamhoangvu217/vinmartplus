@@ -10,8 +10,7 @@
                             <table>
                                 <thead>
                                     <tr>
-                                        <th class="width-thumbnail"></th>
-                                      
+                                        <th class="width-thumbnail">Hình ảnh </th>
                                         <th class="width-name">Tên sản phẩm</th>
                                         <th class="width-price">Đơn giá</th>
                                         <th class="width-quantity">Số lượng</th>
@@ -25,7 +24,7 @@
                                     <tr>
                                        
                                         <td class="product-thumbnail">
-                                            <a href="product-details.html"><img src="assets/images/cart/cart-1.jpg" alt=""></a>
+                                            <a href="product-details.html"><img src="{{$x->options->thumbnail}}" alt=""></a>
                                         </td>
                                         <td class="product-name">
                                             <h5><a href="product-details.html">{{$x->name}}</a></h5>
@@ -33,7 +32,7 @@
                                         <td class="product-cart-price"><span class="amount">{{$x->price}}</span></td>
                                         <td class="cart-quality">
                                             <div class="product-quality">
-                                                <input class="cart-plus-minus-box input-text qty text" name="qtybutton" value="{{$x->qty}}">
+                                                <input type="number" class="cart-plus-minus-box input-text qty text" name="qtybutton" value="{{$x->qty}}">
                                             </div>
                                         </td>
                                         <td class="product-total"><span>{{$x->qty*$x->price}} đ</span></td>
@@ -91,3 +90,17 @@
     </div>
 </div>
 @endsection
+{{-- <script>
+    $(document).ready(function (){
+       $(document).on('keyup','#qtybutton',function($rowId){
+        var keyword =$(this).val();
+        $.ajax{
+            type:"get",
+            url:"/changqty",
+            data:"keyword:keyword,",
+            datatype:"datatype",
+            success:
+        }
+       })
+    });
+</script> --}}

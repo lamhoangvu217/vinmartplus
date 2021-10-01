@@ -17,11 +17,18 @@ class CartController extends Controller
 
     public function CartAdd(Request $request ,$id){
         $product=Product::find($id);
-        Cart::add($product->id,$product->name,1,$product->price);
+        Cart::add(
+            ['id'=>$product->id,'name'=>$product->name,'qty' =>1,'price' =>$product->price,'weight' => 0,
+            'options' => ['size' => 'large', 'thumbnail' => $product->thumbnail]
+         ]);
         return redirect('/shopping');
     }
     public  function CartRemove(Request $request,$id){
          Cart::remove($id);
          return redirect('/cart');
+    }
+    public function Changeqty(Request $request,$id,$qty){
+        Cart::update($id,$qty);
+        return redirect('/cart');
     }
 }
