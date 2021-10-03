@@ -20,10 +20,7 @@
                                 <option>Sort by latest</option>
                             </select>
                         </div>
-                        <div class="shop-view-mode nav">
-                            <a class="active" href="#shop-1" data-bs-toggle="tab"><i class=" ti-layout-grid3 "></i> </a>
-                            <a href="#shop-2" data-bs-toggle="tab" class=""><i class=" ti-view-list-alt "></i></a>
-                        </div>
+                        
                     </div>
                 </div>
                 <div class="shop-bottom-area">
@@ -35,7 +32,7 @@
                                     <div class="product-wrap mb-35" data-aos="fade-up" data-aos-delay="200">
                                         <div class="product-img img-zoom mb-25">
                                             <a href="{{route('detail', $product->id)}}">
-                                                <img src="{{ $product->thumbnail }}" alt="">
+                                                <img src="{{ asset($product->thumbnail)  }}" alt="">
                                             </a>
                                             <div class="product-badge badge-top badge-right badge-pink">
                                                 <span>-{{ $product->promotion->percent }}%</span>
@@ -63,185 +60,14 @@
                                 
                                 
                             </div>
-                            <div class="pagination-style-1" data-aos="fade-up" data-aos-delay="200">
-                                <ul>
-                                    <li><a class="active" href="#">1</a></li>
-                                    <li><a href="#">2</a></li>
-                                    <li><a href="#">3</a></li>
-                                    <li><a class="next" href="#"><i class=" ti-angle-double-right "></i></a></li>
-                                </ul>
-                            </div>
+                            
+                            
+                               
+                            {{-- <div class="pagination-style-1">
+                                {{ $products->links() }}
+                            </div> --}}
                         </div>
-                        <div id="shop-2" class="tab-pane">
-                            <div class="shop-list-wrap mb-30">
-                                <div class="row">
-                                    <div class="col-lg-4 col-sm-5">
-                                        <div class="product-list-img">
-                                            <a href="product-details.html">
-                                                <img src="assets/images/product/product-5.png" alt="Product Style">
-                                            </a>
-                                            <div class="product-list-badge badge-right badge-pink">
-                                                <span>-20%</span>
-                                            </div>
-                                            <div class="product-list-quickview">
-                                                <button class="product-action-btn-2" title="Quick View" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                                    <i class="pe-7s-look"></i>
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-8 col-sm-7">
-                                        <div class="shop-list-content">
-                                            <h3><a href="product-details.html">Interior moderno render</a></h3>
-                                            <div class="product-price">
-                                                <span class="old-price">$70.89 </span>
-                                                <span class="new-price">$55.25 </span>
-                                            </div>
-                                            <div class="product-list-rating">
-                                                <i class=" ti-star"></i>
-                                                <i class=" ti-star"></i>
-                                                <i class=" ti-star"></i>
-                                                <i class=" ti-star"></i>
-                                                <i class=" ti-star"></i>
-                                            </div>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent tristique bibend est a fermentum. Cras faucibus ex quis justo consectetur eleifend in eget diam.</p>
-                                            <div class="product-list-action">
-                                                <button class="product-action-btn-3" title="Add to cart"><i class="pe-7s-cart"></i></button>
-                                                <button class="product-action-btn-3" title="Wishlist"><i class="pe-7s-like"></i></button>
-                                                <button class="product-action-btn-3" title="Compare"><i class="pe-7s-shuffle"></i></button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="shop-list-wrap mb-30">
-                                <div class="row">
-                                    <div class="col-lg-4 col-sm-5">
-                                        <div class="product-list-img">
-                                            <a href="product-details.html">
-                                                <img src="assets/images/product/product-7.png" alt="Product Style">
-                                            </a>
-                                            <div class="product-list-quickview">
-                                                <button class="product-action-btn-2" title="Quick View" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                                    <i class="pe-7s-look"></i>
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-8 col-sm-7">
-                                        <div class="shop-list-content">
-                                            <h3><a href="product-details.html">Round Standard Chair</a></h3>
-                                            <div class="product-price">
-                                                <span>$50.25 </span>
-                                            </div>
-                                            <div class="product-list-rating">
-                                                <i class=" ti-star"></i>
-                                                <i class=" ti-star"></i>
-                                                <i class=" ti-star"></i>
-                                                <i class=" ti-star"></i>
-                                                <i class=" ti-star"></i>
-                                            </div>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent tristique bibend est a fermentum. Cras faucibus ex quis justo consectetur eleifend in eget diam.</p>
-                                            <div class="product-list-action">
-                                                <button class="product-action-btn-3" title="Add to cart"><i class="pe-7s-cart"></i></button>
-                                                <button class="product-action-btn-3" title="Wishlist"><i class="pe-7s-like"></i></button>
-                                                <button class="product-action-btn-3" title="Compare"><i class="pe-7s-shuffle"></i></button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="shop-list-wrap mb-30">
-                                <div class="row">
-                                    <div class="col-lg-4 col-sm-5">
-                                        <div class="product-list-img">
-                                            <a href="product-details.html">
-                                                <img src="assets/images/product/product-4.png" alt="Product Style">
-                                            </a>
-                                            <div class="product-list-badge badge-right badge-pink">
-                                                <span>-10%</span>
-                                            </div>
-                                            <div class="product-list-quickview">
-                                                <button class="product-action-btn-2" title="Quick View" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                                    <i class="pe-7s-look"></i>
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-8 col-sm-7">
-                                        <div class="shop-list-content">
-                                            <h3><a href="product-details.html">Stylish Swing Chair</a></h3>
-                                            <div class="product-price">
-                                                <span class="old-price">$80.89 </span>
-                                                <span class="new-price">$60.25 </span>
-                                            </div>
-                                            <div class="product-list-rating">
-                                                <i class=" ti-star"></i>
-                                                <i class=" ti-star"></i>
-                                                <i class=" ti-star"></i>
-                                                <i class=" ti-star"></i>
-                                                <i class=" ti-star"></i>
-                                            </div>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent tristique bibend est a fermentum. Cras faucibus ex quis justo consectetur eleifend in eget diam.</p>
-                                            <div class="product-list-action">
-                                                <button class="product-action-btn-3" title="Add to cart"><i class="pe-7s-cart"></i></button>
-                                                <button class="product-action-btn-3" title="Wishlist"><i class="pe-7s-like"></i></button>
-                                                <button class="product-action-btn-3" title="Compare"><i class="pe-7s-shuffle"></i></button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="shop-list-wrap mb-30">
-                                <div class="row">
-                                    <div class="col-lg-4 col-sm-5">
-                                        <div class="product-list-img">
-                                            <a href="product-details.html">
-                                                <img src="assets/images/product/product-8.png" alt="Product Style">
-                                            </a>
-                                            <div class="product-list-badge badge-right badge-pink">
-                                                <span>-10%</span>
-                                            </div>
-                                            <div class="product-list-quickview">
-                                                <button class="product-action-btn-2" title="Quick View" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                                    <i class="pe-7s-look"></i>
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-8 col-sm-7">
-                                        <div class="shop-list-content">
-                                            <h3><a href="product-details.html">Modern Swivel Chair</a></h3>
-                                            <div class="product-price">
-                                                <span class="old-price">$45.89 </span>
-                                                <span class="new-price">$30.25 </span>
-                                            </div>
-                                            <div class="product-list-rating">
-                                                <i class=" ti-star"></i>
-                                                <i class=" ti-star"></i>
-                                                <i class=" ti-star"></i>
-                                                <i class=" ti-star"></i>
-                                                <i class=" ti-star"></i>
-                                            </div>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent tristique bibend est a fermentum. Cras faucibus ex quis justo consectetur eleifend in eget diam.</p>
-                                            <div class="product-list-action">
-                                                <button class="product-action-btn-3" title="Add to cart"><i class="pe-7s-cart"></i></button>
-                                                <button class="product-action-btn-3" title="Wishlist"><i class="pe-7s-like"></i></button>
-                                                <button class="product-action-btn-3" title="Compare"><i class="pe-7s-shuffle"></i></button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="pagination-style-1">
-                                <ul>
-                                    <li><a class="active" href="#">1</a></li>
-                                    <li><a href="#">2</a></li>
-                                    <li><a href="#">3</a></li>
-                                    <li><a class="next" href="#"><i class=" ti-angle-double-right "></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
+                        
                     </div>
                 </div>
             </div>

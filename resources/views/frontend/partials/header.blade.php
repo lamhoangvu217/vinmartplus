@@ -4,7 +4,7 @@
             <div class="row align-items-center">
                 <div class="col-lg-3 col-md-6 col-6">
                     <div class="logo">
-                        <a href="/"><img src="https://upload.wikimedia.org/wikipedia/vi/7/75/Vinmart_logo_sieu_thi.png"
+                        <a href="/"><img src="https://upload.wikimedia.org/wikipedia/vi/7/75/Vinmart_logo_sieu_thi.png" 
                                 alt="logo" /></a>
                     </div>
                 </div>

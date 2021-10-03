@@ -11,7 +11,8 @@ class ProductController extends Controller
 {
     public function product()
     {
-        $products = Product::orderBy('price', "asc")->get();
+        // $products = Product::orderBy('price', "asc")->get();
+        $products = Product::paginate(10);
         return view('frontend.contents.shopping', compact('products'));
     }
 

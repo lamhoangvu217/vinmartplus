@@ -53,5 +53,23 @@ Route::group(['middleware' => ['auth:admin']], function () {
             Route::get('index', 'Backend\EmployeeController@index')->name('employee.index');
             Route::get('create', 'Backend\EmployeeController@create')->name('employee.create');
         });
+        Route::group(['prefix' => 'product'], function () {
+            Route::get('index', 'Backend\ProductController@index')->name('product.index');
+            Route::get('create', 'Backend\ProductController@create')->name('product.create');
+            Route::post('create', 'Backend\ProductController@store')->name('product.store');
+
+            Route::get('edit/{id}', 'Backend\ProductController@edit')->name('product.edit');
+            Route::post('edit/{id}', 'Backend\ProductController@update')->name('product.update');
+            Route::get('delete/{id}', 'Backend\ProductController@delete')->name('product.delete');
+        });
+        Route::group(['prefix' => 'category'], function() {
+            Route::get('index', 'Backend\CategoryController@index')->name('category.index');
+            Route::get('create', 'Backend\CategoryController@create')->name('category.create');
+            Route::post('create', 'Backend\CategoryController@store')->name('category.store');
+
+            Route::get('edit/{id}', 'Backend\CategoryController@edit')->name('category.edit');
+            Route::post('edit/{id}', 'Backend\CategoryController@update')->name('category.update');
+            Route::get('delete/{id}', 'Backend\CategoryController@delete')->name('category.delete');
+        });
     });
 });
