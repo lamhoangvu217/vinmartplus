@@ -1,7 +1,7 @@
 @extends('backend.layouts.main')
 
 @section('content')
-<div class="create-employ px-5" style="margin-top: 100px;">
+<div class="create-employ " style="margin-top: 100px;">
     <div class="container">
         <div class="nk-block">
             <a href="{{ route('employee.index')}}" style="color: black;">

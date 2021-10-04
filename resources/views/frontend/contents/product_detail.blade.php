@@ -7,50 +7,20 @@
                     <div class="product-details-img-wrap product-details-vertical-wrap" data-aos="fade-up"
                         data-aos-delay="200">
 
-                        <div class="product-details-small-img-wrap">
-                            <div class="swiper-container product-details-small-img-slider-1 pd-small-img-style">
-                                <div class="swiper-wrapper">
-                                    <div class="swiper-slide">
-                                        <div class="product-details-small-img">
-                                            <img src="{{ $product->thumbnail }}" alt="Product Thumnail" />
-                                        </div>
-
-
-                                    </div>
-                                    @foreach ($images as $image)
-                                        <div class="swiper-slide">
-
-                                            <div class="product-details-small-img">
-                                                <img src="{{ $image->path }}" alt="Product Thumnail" />
-                                            </div>
-                                        </div>
-
-                                    @endforeach
-
-                                </div>
-                            </div>
-                            <div class="pd-prev pd-nav-style">
-                                <i class="ti-angle-up"></i>
-                            </div>
-                            <div class="pd-next pd-nav-style">
-                                <i class="ti-angle-down"></i>
-                            </div>
-                        </div>
+                        
                         <div class="swiper-container product-details-big-img-slider-1 pd-big-img-style">
                             <div class="swiper-wrapper">
                                 <div class="swiper-slide">
                                     <div class="easyzoom-style">
                                         <div class="easyzoom easyzoom--overlay">
-                                            <a href="{{ $product->thumbnail }}">
-                                                <img src="{{ $product->thumbnail }}" alt="" />
+                                            <a href="{{ asset($product->thumbnail) }}">
+                                                <img src="{{ asset($product->thumbnail) }}" alt="" />
                                             </a>
                                         </div>
-                                        <a class="easyzoom-pop-up img-popup" href="{{ $product->thumbnail }}">
-                                            <i class="pe-7s-search"></i>
-                                        </a>
+                                        
                                     </div>
                                 </div>
-                                @foreach ($images as $image)
+                                {{-- @foreach ($images as $image)
 
                                     <div class="swiper-slide">
 
@@ -67,7 +37,7 @@
 
                                     </div>
 
-                                @endforeach
+                                @endforeach --}}
                             </div>
 
                         </div>
@@ -121,7 +91,7 @@
                 <div id="des-details2" class="tab-pane active">
                     <div class="product-description-content text-center">
                         <p data-aos="fade-up" data-aos-delay="200">
-                            {{ $product->detail }}
+                            {!! $product->detail !!}
                         </p>
 
                     </div>

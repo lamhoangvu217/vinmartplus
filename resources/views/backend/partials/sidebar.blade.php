@@ -28,7 +28,13 @@
                         </a>
                     </li><!-- .nk-menu-item -->
                     <li class="nk-menu-item">
-                        <a href="html/ecommerce/products.html" class="nk-menu-link">
+                        <a href="{{ route('category.index') }}" class="nk-menu-link">
+                            <span class="nk-menu-icon"><i class="fas fa-box-open"></i></span>
+                            <span class="nk-menu-text">Danh mục</span>
+                        </a>
+                    </li><!-- .nk-menu-item -->
+                    <li class="nk-menu-item">
+                        <a href="{{ route('product.index')}}" class="nk-menu-link">
                             <span class="nk-menu-icon"><i class="fas fa-cube"></i></span>
                             <span class="nk-menu-text">Sản phẩm</span>
                         </a>
@@ -47,7 +53,9 @@
                         </a>
                     </li><!-- .nk-menu-item -->
 
-                   
+                    <li class="ml-4">
+                        <a href="{{ route('product')}}" style="color: black;">Quay lại trang chủ Client</a>
+                    </li>
                     
                 </ul><!-- .nk-menu -->
             </div><!-- .nk-sidebar-menu -->
