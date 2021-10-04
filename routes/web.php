@@ -59,5 +59,5 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('cart', 'Frontend\CartController@cart')->name('cart');
     Route::get('add/{id}', 'Frontend\CartController@CartAdd')->name('addtocart');
     Route::get('delete/{id}','Frontend\CartController@CartRemove')->name('removefromcart');
-    Route::get('changeqty/{id}','Frontend\CartController@Changeqty')->name('changeqty');
+    Route::post('changeqty','Frontend\CartController@Changeqty')->name('changeqty');
 }); 

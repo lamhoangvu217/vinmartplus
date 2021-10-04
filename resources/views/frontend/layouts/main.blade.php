@@ -49,6 +49,7 @@
     <script src="{{ asset('urdan/js/vendor/popper.min.js') }}"></script>
     <script src="{{ asset('urdan/js/vendor/bootstrap.min.js') }}"></script>
     <script src="{{ asset('urdan/js/main.js') }}"></script>
+    <script src="{{asset('urdan/js/cart.js')}}"></script>
     {{-- <script src="{{asset('urdan/js/plugins/jquery-ui.js')}}"></script> --}}
 
     {{-- <script src="{{asset('urdan/js/vendor/jquery-migrate-3.3.2.min.js')}}"></script> --}}
@@ -70,7 +71,7 @@
     {{-- <script src="{{asset('urdan/js/plugins/imagesloaded.pkgd.min.js')}}"></script> --}}
     {{-- <script src="{{asset('urdan/js/plugins/isotope.pkgd.min.js')}}"></script> --}}
     <!-- Main JS -->
-
+    
     @yield('js')
 </body>
 

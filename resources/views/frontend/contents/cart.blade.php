@@ -31,12 +31,12 @@
                                         </td>
                                         <td class="product-cart-price"><span class="amount">{{$x->price}}</span></td>
                                         <td class="cart-quality">
-                                            <div class="product-quality">
-                                                <input type="number" class="cart-plus-minus-box input-text qty text" name="qtybutton" value="{{$x->qty}}">
+                                            <div class="product-quality">                           
+                                                    <input type="number" min="0" max="999" step="1" value="{{$x->qty}}">
                                             </div>
                                         </td>
                                         <td class="product-total"><span>{{$x->qty*$x->price}} đ</span></td>
-                                        <td class="product-remove"><a href="{{route('removefromcart',$x->rowId)}}"><i class=" ti-trash "></i></a></td>
+                                        <td class="product-remove"><a href="{{route('removefromcart',$x->rowId)}}" onclick="Isremove()"><i class=" ti-trash "></i></a></td>
                                     </tr>
                                     <tr>
                                     @endforeach
@@ -89,18 +89,6 @@
         </div>
     </div>
 </div>
+
 @endsection
-{{-- <script>
-    $(document).ready(function (){
-       $(document).on('keyup','#qtybutton',function($rowId){
-        var keyword =$(this).val();
-        $.ajax{
-            type:"get",
-            url:"/changqty",
-            data:"keyword:keyword,",
-            datatype:"datatype",
-            success:
-        }
-       })
-    });
-</script> --}}
+
