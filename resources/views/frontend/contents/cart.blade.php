@@ -44,7 +44,7 @@
                                             <div class="product-quality">   
                                                 @csrf
                                                 
-                                                <input type="number" class="qty" data-url_update="{{ route('changeqty')}}" id="{{ $x->rowId }}" data-row_id="{{ $x->rowId }}" min="0" max="999" step="1" value="{{$x->qty}}">
+                                                <input type="number" class="qty" data-index="{{ $t }}"  data-url_update="{{ route('changeqty')}}" id="{{ $x->rowId }}" data-row_id="{{ $x->rowId }}" min="0" max="{{$x->options->max}}" step="1" value="{{$x->qty}}">
                                             </div>
 
                                         </td>

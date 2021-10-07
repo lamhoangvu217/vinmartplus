@@ -2,22 +2,33 @@ $(".qty").change(function() {
     let rowId = $(this).data("row_id");
     let qty = $(this).val();
     let _token = $('input[name="_token"]').val();
-
+    let index = $(this).data("index");
     let url_update = $(this).data("url_update");
-    $.ajax({
-        url: url_update,
-        type: "POST",
-        data: {
-            qty: qty,
-            rowId: rowId,
-            _token: _token
+    if(qty==0){
+        var r = confirm("Bạn có muốn xóa sản phẩm không ???");
+        if (r == true) {
+            $.ajax({
+                url: url_update,
+                type: "POST",
+                data: {
+                    qty: qty,
+                    rowId: rowId,
+                    _token: _token
+                }
+            }).done(function(data) {
+                let subtotal = data.subtotal + " đ";
+                $("span." + rowId).html(subtotal);
+                $("span.total").html(data.total + " đ");
+                $("span.product-count").html(data.count);
+                document.getElementById("cart-table").deleteRow(index);
+                swal(data.status, data.message, "success");
+            });
+        } else {
+         return false;
         }
-    }).done(function(data) {
-        let subtotal = data.subtotal + " đ";
-        $("span." + rowId).html(subtotal);
-        $("span.total").html(data.total + " đ");
-        // console.log(data);
-    });
+    }
+  
+   
 });
 
 $(".add-cart").click(function() {
