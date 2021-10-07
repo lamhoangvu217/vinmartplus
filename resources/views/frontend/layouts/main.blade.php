@@ -44,7 +44,7 @@
 
     </div>
     <!-- All JS is here -->
-
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="{{ asset('urdan/js/vendor/jquery-3.6.0.min.js') }}"></script>
     <script src="{{ asset('urdan/js/vendor/popper.min.js') }}"></script>
     <script src="{{ asset('urdan/js/vendor/bootstrap.min.js') }}"></script>

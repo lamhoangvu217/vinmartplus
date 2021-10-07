@@ -7,7 +7,7 @@
                 <form action="#">
                     <div class="cart-table-content">
                         <div class="table-content">
-                            <table>
+                            <table id="cart-table">
                                 <thead>
                                     <tr>
                                         <th class="width-thumbnail">Hình ảnh </th>
@@ -21,13 +21,20 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @php
+                                        $t = 0;
+                        
+                                    @endphp
                                     @foreach ($data as $x )
+                                    @php
+                                        $t++;
+                                    @endphp
                                     <tr>                                      
                                         <td class="product-thumbnail">
-                                            <a href="product-details.html"><img src="{{$x->options->thumbnail}}" alt=""></a>
+                                            <a href="{{route('detail', $x->id)}}"><img src="{{$x->options->thumbnail}}" alt=""></a>
                                         </td>
                                         <td class="product-name">
-                                            <h5><a href="product-details.html">{{$x->name}}</a></h5>
+                                            <h5><a href="{{route('detail', $x->id)}}" target="_blank">{{$x->name}}  </a></h5>
                                         </td>
 
                                         <td class="product-cart-price"><span class="amount">{{number_format($x->options->oldPrice , 0,'', '.')}} đ</span></td>
@@ -43,7 +50,7 @@
                                         </td>
                                         {{-- <td class="product-total"><span class="{{ $x->rowId }}">{{ number_format($x->price - ($x->price * $x->options->discount)/100 , 0,'', '.') }} đ</span></td> --}}
                                         <td class="product-total"><span class="{{ $x->rowId }}">{{ number_format($x->subtotal , 0,'', '.') }} đ</span></td>
-                                        <td class="product-remove"><a href="{{route('removefromcart',$x->rowId)}}" onclick="Isremove()"><i class=" ti-trash "></i></a></td>
+                                        <td class="product-remove"><a href="#"  data-index="{{ $t }}" data-url_delete="{{ route('removefromcart') }}" id="{{ $x->rowId }}" class="remove-cart" onclick="return false;"><i class=" ti-trash "></i></a></td>
                                     </tr>
                                     <tr>
                                     @endforeach
@@ -62,13 +69,11 @@
                         <div class="col-lg-12">
                             <div class="cart-shiping-update-wrapper">
                                 <div class="cart-shiping-update btn-hover">
-                                    <a href="#">Tiếp tục mua sắm</a>
+                                    <a href="{{ route('product') }}">Tiếp tục mua sắm</a>
                                 </div>
                                 
                                 <div class="cart-clear-wrap">
-                                    <div class="cart-clear btn-hover">
-                                        <button>Cập nhật giỏ hàng</button>
-                                    </div>
+                                    
                                     <div class="cart-clear btn-hover">
                                         <a href="{{route('checkout')}}">Thanh toán</a>
                                     </div>

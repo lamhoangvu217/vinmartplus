@@ -69,7 +69,8 @@
 
                         <div class="header-action-style header-action-cart">
                             <a class="" href="{{ route('cart') }}"><i class="pe-7s-shopbag"></i>
-                                <span class="product-count bg-black">01</span>
+                                {{-- <span class="product-count bg-black">{{ Cart::count() }}</span> --}}
+                                <span class="product-count bg-black">{{ Cart::content()->count() }}</span>
                             </a>
                         </div>
                         <div class="header-action-style d-block d-lg-none">

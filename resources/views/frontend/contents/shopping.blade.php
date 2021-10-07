@@ -44,7 +44,8 @@
                                                 </button>
                                             </div>
                                             <div class="product-action-2-wrap">
-                                                <a href="{{route('addtocart',$product->id)}}"  class="product-action-btn-2" title="Add To Cart" ><i class="pe-7s-cart"></i> Add to cart</a>
+                                                @csrf
+                                                <a href="#" onclick="return false;" data-url_addcart="{{ route('addtocart') }}" id="{{ $product->id }}" class="product-action-btn-2 add-cart" title="Add To Cart" ><i class="pe-7s-cart"></i> Add to cart</a>
 
                                             </div>
                                         </div>
