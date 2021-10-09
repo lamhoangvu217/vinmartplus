@@ -25,7 +25,7 @@ Route::get('/checkout', 'HomeController@checkout')->name('checkout');
 
 Route::get('/product', 'Backend\ProductController@product');
 Route::get('/detail/{id}', 'Frontend\ProductController@detail')->name('detail');
-
+Route::get('/checkout','Frontend\CheckOut@CheckOut')->name('checkout');
 
 
 

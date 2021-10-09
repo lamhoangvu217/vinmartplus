@@ -106,15 +106,16 @@
                       <li>Sản phẩm <span>Giá</span></li>
                     </ul>
                   </div>
-                  <div class="your-order-middle">
-                    <ul>
-                      <li>Product Name X 1 <span>1.500.000 đ </span></li>
-                      
-                    </ul>
-                  </div>
+                  @foreach($data as $x)
+                   <div class="your-order-middle">
+                     <ul>
+                      <li>{{$x->name}} x {{$x->qty}} <span>{{$x->price}} đ </span></li>
+                     </ul>
+                   </div>
+                  @endforeach
                   <div class="your-order-info order-subtotal">
                     <ul>
-                      <li>Tạm tính <span>1.500.000 đ </span></li>
+                      <li>Tạm tính <span>{{Cart::total()}}đ </span></li>
                     </ul>
                   </div>
                   <div class="your-order-info order-shipping">
@@ -127,7 +128,7 @@
                   </div>
                   <div class="your-order-info order-total">
                     <ul>
-                      <li>Tổng tiền <span>1.530.000 </span></li>
+                      <li>Tổng tiền <span>{{$total}} </span></li>
                     </ul>
                   </div>
                 </div>
