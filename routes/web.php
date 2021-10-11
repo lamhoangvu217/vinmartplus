@@ -52,6 +52,7 @@ Route::group(['middleware' => ['auth:admin']], function () {
         Route::group(['prefix' => 'employee'], function () {
             Route::get('index', 'Backend\EmployeeController@index')->name('employee.index');
             Route::get('create', 'Backend\EmployeeController@create')->name('employee.create');
+            Route::post('submitcreate','Backend\EmployeeController@submitcreate')->name('employee.submitcreate');
         });
         Route::group(['prefix' => 'product'], function () {
             Route::get('index', 'Backend\ProductController@index')->name('product.index');
