@@ -13,4 +13,7 @@ class CheckOut extends Controller
        $total=Cart::total();
        return view('frontend.contents.checkout',compact('data','total'));
    }
+   public function FinishShopping(){
+       
+   }
 }
