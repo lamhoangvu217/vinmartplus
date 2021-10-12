@@ -81,6 +81,8 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('add', 'Frontend\CartController@addCart')->name('addtocart');
     Route::post('delete', 'Frontend\CartController@removeCart')->name('removefromcart');
     Route::post('changeqty', 'Frontend\CartController@updateCart')->name('changeqty');
+    Route::get('/checkout','Frontend\CheckOut@CheckOut')->name('checkout');
+    Route::get('/finishshopping','Frontend\CheckOut@FinishShopping')->name('finishshopping');
 
 });
 
@@ -88,6 +90,5 @@ Route::group(['middleware' => ['auth']], function () {
 Route::group(['middleware' => ['auth'], 'prefix' => 'profile'], function () {
     Route::get('/', 'Frontend\ProfileController@index')->name('profile');
     Route::post('/update/{id}', 'Frontend\ProfileController@update')->name('updateProfile');
-    Route::get('/checkout','Frontend\CheckOut@CheckOut')->name('checkout');
-    Route::get('/finishshopping','Frontend\CheckOut@FinishShopping')->name('finishshopping');
+    
 }); 
