@@ -36,6 +36,16 @@
 </head>
 
 <body>
+    <style> 
+    a.disabled {
+  pointer-events: none;
+  cursor: default;
+}
+span.remove-cart:hover {
+   color: red;
+   cursor: pointer;
+}
+    </style>
     <div class="main-wrapper main-wrapper-2">
         @include('frontend.partials.header')
         @yield('content')

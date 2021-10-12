@@ -31,7 +31,8 @@ class CartController extends Controller
                 'options' => [
                     'thumbnail' => $product->thumbnail,
                     'discount' => $product->promotion->percent,
-                    'oldPrice' => $product->price
+                    'oldPrice' => $product->price,
+                    'max' =>$product->qty
                 ],
 
             ]
@@ -54,6 +55,7 @@ class CartController extends Controller
     }
     public  function removeCart(Request $request)
     {
+      
         Cart::remove($request->rowId);
         return [
             'message' => 'Xóa sản phẩm thành công !',
@@ -65,6 +67,17 @@ class CartController extends Controller
     }
     public function updateCart(Request $request)
     {
+        if($request->qty ==0){
+            Cart::remove($request->rowId);
+            return [
+                'message' => 'Xóa sản phẩm thành công !',
+                // 'count' => Cart::count(),
+                'count' => Cart::content()->count(),
+                'status' => 'success',
+                'total' => Cart::total(),
+            ];
+        }else
+       {
         Cart::update($request->rowId, $request->qty);
 
         $cart = Cart::get($request->rowId);
@@ -75,5 +88,6 @@ class CartController extends Controller
             'subtotal' => $subtotal
         ];
         return $data;
+       }
     }
 }
