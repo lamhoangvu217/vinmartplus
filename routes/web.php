@@ -25,7 +25,7 @@ Route::get('/checkout', 'HomeController@checkout')->name('checkout');
 
 Route::get('/product', 'Backend\ProductController@product');
 Route::get('/detail/{id}', 'Frontend\ProductController@detail')->name('detail');
-Route::get('/checkout','Frontend\CheckOut@CheckOut')->name('checkout');
+
 
 
 
@@ -41,6 +41,7 @@ Route::group(['prefix' => 'admin'], function () {
     Route::get('login', 'Admin\LoginController@showLoginForm')->name('login.admin');
     Route::post('login', 'Admin\LoginController@login');
     Route::post('logout', 'Admin\LoginController@logout')->name('logout.admin');
+    
 });
 Route::group(['middleware' => ['auth:admin']], function () {
     Route::get('/admin', 'Backend\DashboardController@index');
@@ -48,6 +49,9 @@ Route::group(['middleware' => ['auth:admin']], function () {
     Route::group(['prefix' => 'admin'], function () {
         Route::group(['prefix' => 'customer'], function () {
             Route::get('index', 'Backend\CustomerController@index')->name('customer.index');
+        });
+        Route::group(['prefix' => 'order'], function () {
+            Route::get('index', 'Backend\OrderController@index')->name('order.index');
         });
         Route::group(['prefix' => 'employee'], function () {
             Route::get('index', 'Backend\EmployeeController@index')->name('employee.index');
@@ -79,4 +83,6 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('add', 'Frontend\CartController@addCart')->name('addtocart');
     Route::post('delete','Frontend\CartController@removeCart')->name('removefromcart');
     Route::post('changeqty','Frontend\CartController@updateCart')->name('changeqty');
+    Route::get('/checkout','Frontend\CheckOut@CheckOut')->name('checkout');
+    Route::get('/finishshopping','Frontend\CheckOut@FinishShopping')->name('finishshopping');
 }); 

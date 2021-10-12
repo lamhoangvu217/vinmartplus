@@ -22,7 +22,7 @@
                         </a>
                     </li><!-- .nk-menu-item -->
                     <li class="nk-menu-item">
-                        <a href="html/ecommerce/orders.html" class="nk-menu-link">
+                        <a href="{{route('order.index')}}" class="nk-menu-link">
                             <span class="nk-menu-icon"><i class="fas fa-shopping-bag"></i></span>
                             <span class="nk-menu-text">Đơn hàng</span>
                         </a>

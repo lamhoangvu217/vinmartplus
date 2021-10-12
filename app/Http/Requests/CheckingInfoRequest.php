@@ -3,8 +3,8 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use
-class CheckingInfo extends FormRequest
+
+class CheckingInfoRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -13,7 +13,7 @@ class CheckingInfo extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,10 @@ class CheckingInfo extends FormRequest
     public function rules()
     {
         return [
-            
+            'Name' =>'min:4' ,'max:225' ,'string',
+            'Phone'=>'min:8','phone',
+            'Address'=>'min:5','max:255',
+            'Email'=>'min:5','email'
         ];
     }
 }
