@@ -38,7 +38,6 @@
 <body>
     <div class="main-wrapper main-wrapper-2">
         @include('frontend.partials.header')
-        @include('frontend.layouts.show_cart')
         @yield('content')
         @include('frontend.partials.footer')
 
@@ -49,7 +48,8 @@
     <script src="{{ asset('urdan/js/vendor/popper.min.js') }}"></script>
     <script src="{{ asset('urdan/js/vendor/bootstrap.min.js') }}"></script>
     <script src="{{ asset('urdan/js/main.js') }}"></script>
-    <script src="{{asset('urdan/js/cart.js')}}"></script>
+    <script src="{{ asset('urdan/js/cart.js') }}"></script>
+    <script src="{{ asset('urdan/js/category.js') }}"></script>
     {{-- <script src="{{asset('urdan/js/plugins/jquery-ui.js')}}"></script> --}}
 
     {{-- <script src="{{asset('urdan/js/vendor/jquery-migrate-3.3.2.min.js')}}"></script> --}}
@@ -67,11 +67,11 @@
     {{-- <script src="{{asset('urdan/js/plugins/aos.js')}}"></script> --}}
     {{-- <script src="{{asset('urdan/js/plugins/magnific-popup.js')}}"></script> --}}
     {{-- <script src="{{asset('urdan/js/plugins/jquery.syotimer.min.js')}}"></script> --}}
-    {{-- <script src="{{asset('urdan/js/plugins/swiper.min.js')}}"></script> --}}
+    <script src="{{ asset('urdan/js/plugins/swiper.min.js') }}"></script>
     {{-- <script src="{{asset('urdan/js/plugins/imagesloaded.pkgd.min.js')}}"></script> --}}
     {{-- <script src="{{asset('urdan/js/plugins/isotope.pkgd.min.js')}}"></script> --}}
     <!-- Main JS -->
-    
+
     @yield('js')
 </body>
 

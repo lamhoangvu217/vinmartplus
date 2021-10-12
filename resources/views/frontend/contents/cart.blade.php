@@ -23,7 +23,6 @@
                                 <tbody>
                                     @php
                                         $t = 0;
-                        
                                     @endphp
                                     @foreach ($data as $x )
                                     @php

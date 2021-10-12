@@ -13,7 +13,7 @@ class ProductController extends Controller
 {
     public function index()
     {
-        $products = Product::paginate(1);
+        $products = Product::paginate(5);
         $categories = ProductCategory::all();
         return view('backend.contents.product.index', compact('products', 'categories'));
     }

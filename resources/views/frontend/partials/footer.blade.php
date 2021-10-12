@@ -13,13 +13,13 @@
                 <p>
                     Công Ty Cổ Phần Dịch Vụ Thương Mại Tổng Hợp VinCommerce
                 </p>
-                <div class="payment-img">
+                {{-- <div class="payment-img">
                   <a href="#"
                     ><img
                       src="{{asset('public/urdan')}}/assets/images/icon-img/payment.png"
                       alt="logo"
                   /></a>
-                </div>
+                </div> --}}
               </div>
             </div>
             <div class="col-lg-3 col-md-6 col-sm-6 col-12">

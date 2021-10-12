@@ -60,6 +60,22 @@ $(".remove-cart").click(function() {
             $("span.total").html(data.total + " đ");
             document.getElementById("cart-table").deleteRow(index);
             swal(data.status, data.message, "success");
+            // swal({
+            //     title: "Bạn có chắc chắn muốn xóa không?",
+            //     text: "Một khi đã khóa",
+            //     icon: "warning",
+            //     buttons: true,
+            //     dangerMode: true,
+            //   })
+            //   .then((willDelete) => {
+            //     if (willDelete) {
+            //       swal("Xóa thành công !!!", {
+            //         icon: "success",
+            //       });
+            //     } else {
+            //       swal("Your imaginary file is safe!");
+            //     }
+            //   });
         } else {
             swal(data.status, data.message, "error");
         }

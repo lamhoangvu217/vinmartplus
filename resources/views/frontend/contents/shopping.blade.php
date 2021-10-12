@@ -1,23 +1,33 @@
 @extends('frontend.layouts.main')
 @section('content')
+<style>
+    span.old-price-current {
+        color: black;
+    }
+    .nutdanhmuc {
+        background-color: #d63031;
+        border: none;
+    }
+    .nutdanhmuc:hover {
+        background-color: #e17055;
+    }
+</style>
 <h1 style="text-align: center;">Mua sắm</h1>
+
 <div class="shop-area pt-100 pb-100">
     <div class="container">
         <div class="row flex-row-reverse">
             <div class="col-12">
                 <div class="shop-topbar-wrapper mb-40">
-                    <div class="shop-topbar-left" data-aos="fade-up" data-aos-delay="200">
-                        <div class="showing-item">
-                            <span>Showing 1–12 of 60 results</span>
-                        </div>
-                    </div>
                     <div class="shop-topbar-right" data-aos="fade-up" data-aos-delay="400">
                         <div class="shop-sorting-area">
-                            <select class="nice-select nice-select-style-1">
-                                <option>Default Sorting</option>
-                                <option>Sort by popularity</option>
-                                <option>Sort by average rating</option>
-                                <option>Sort by latest</option>
+                            <select class="nice-select nice-select-style-1 category">
+                            
+                                <option value="all">Tất cả sản phẩm</option>
+                                @foreach ($categories as $category)
+                                    <option value="{{ $category->id }}">{{ $category->name }}</option>                                  
+                                @endforeach
+                                
                             </select>
                         </div>
                         
@@ -26,9 +36,9 @@
                 <div class="shop-bottom-area">
                     <div class="tab-content jump">
                         <div id="shop-1" class="tab-pane active">
-                            <div class="row">
+                            <div class="row render-product">
                                 @foreach ($products as $product)
-                                    <div class="col-lg-3 col-md-4 col-sm-6 col-12">
+                                <div class="col-lg-3 col-md-4 col-sm-6 col-12">
                                     <div class="product-wrap mb-35" data-aos="fade-up" data-aos-delay="200">
                                         <div class="product-img img-zoom mb-25">
                                             <a href="{{route('detail', $product->id)}}">
@@ -37,12 +47,7 @@
                                             <div class="product-badge badge-top badge-right badge-pink">
                                                 <span>-{{ $product->promotion->percent }}%</span>
                                             </div>
-                                            <div class="product-action-wrap">
-                                                <button class="product-action-btn-1" title="Wishlist"><i class="pe-7s-like"></i></button>
-                                                <button class="product-action-btn-1" title="Quick View" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                                    <i class="pe-7s-look"></i>
-                                                </button>
-                                            </div>
+                                            
                                             <div class="product-action-2-wrap">
                                                 @csrf
                                                 <a href="#" onclick="return false;" data-url_addcart="{{ route('addtocart') }}" id="{{ $product->id }}" class="product-action-btn-2 add-cart" title="Add To Cart" ><i class="pe-7s-cart"></i> Add to cart</a>
@@ -50,26 +55,21 @@
                                             </div>
                                         </div>
                                         <div class="product-content">
-                                            <h3><a href="product-details.html">{{ $product->name }}</a></h3>
+                                            <h3><a href="{{route('detail', $product->id)}}">{{ $product->name }}</a></h3>
                                             <div class="product-price">
-                                                <span class="old-price"> {{ number_format($product->price, 0, '', '.') }} đ </span>
-                                                <span class="new-price"> {{ number_format(($product->price*$product->promotion->percent)/100, 0, '', '.') }} đ </span>
+                                                @if ($product->promotion->percent == 0)
+                                                    <span class="old-price-current"> {{ number_format($product->price, 0, '', '.') }} đ </span>
+                                                @else
+                                                    <span class="old-price"> {{ number_format($product->price, 0, '', '.') }} đ </span>
+                                                    <span class="new-price"> {{ number_format(($product->price*$product->promotion->percent)/100, 0, '', '.') }} đ </span>
+                                                @endif
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                @endforeach
-                                
-                                
-                            </div>
-                            
-                            
-                               
-                            {{-- <div class="pagination-style-1">
-                                {{ $products->links() }}
-                            </div> --}}
-                        </div>
-                        
+                                @endforeach              
+                            </div>                        
+                        </div>                       
                     </div>
                 </div>
             </div>

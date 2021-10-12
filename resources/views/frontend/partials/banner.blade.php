@@ -37,7 +37,7 @@
             data-aos="fade-up"
             data-aos-delay="200"
           >
-            <a href="product-details.html"
+            <a href="/shopping"
               ><img src="https://cdn-www.vinid.net/2020/09/823facc0-banner-tin-tuc-web.jpg" alt=""
             /></a>
             <div class="banner-content-5">
@@ -57,7 +57,7 @@
             data-aos="fade-up"
             data-aos-delay="400"
           >
-            <a href="product-details.html"
+            <a href="/shopping"
               ><img src="https://cdn-www.vinid.net/2020/03/20200302_Voucher_Thang3_Topbanner_1920x1080.jpg" alt=""
             /></a>
             <div class="banner-content-5">

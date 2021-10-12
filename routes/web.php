@@ -26,8 +26,7 @@ Route::get('/checkout', 'HomeController@checkout')->name('checkout');
 Route::get('/product', 'Backend\ProductController@product');
 Route::get('/detail/{id}', 'Frontend\ProductController@detail')->name('detail');
 
-
-
+Route::get('/render-product', 'Frontend\ProductController@renderProductByCategory')->name('renderProduct');
 
 Auth::routes();
 
@@ -62,7 +61,7 @@ Route::group(['middleware' => ['auth:admin']], function () {
             Route::post('edit/{id}', 'Backend\ProductController@update')->name('product.update');
             Route::get('delete/{id}', 'Backend\ProductController@delete')->name('product.delete');
         });
-        Route::group(['prefix' => 'category'], function() {
+        Route::group(['prefix' => 'category'], function () {
             Route::get('index', 'Backend\CategoryController@index')->name('category.index');
             Route::get('create', 'Backend\CategoryController@create')->name('category.create');
             Route::post('create', 'Backend\CategoryController@store')->name('category.store');
@@ -76,6 +75,13 @@ Route::group(['middleware' => ['auth:admin']], function () {
 Route::group(['middleware' => ['auth']], function () {
     Route::get('cart', 'Frontend\CartController@index')->name('cart');
     Route::post('add', 'Frontend\CartController@addCart')->name('addtocart');
-    Route::post('delete','Frontend\CartController@removeCart')->name('removefromcart');
-    Route::post('changeqty','Frontend\CartController@updateCart')->name('changeqty');
-}); 
+    Route::post('delete', 'Frontend\CartController@removeCart')->name('removefromcart');
+    Route::post('changeqty', 'Frontend\CartController@updateCart')->name('changeqty');
+
+});
+
+
+Route::group(['prefix' => 'profile'], ['middleware' => ['auth']], function () {
+    Route::get('/', 'Frontend\ProfileController@index')->name('profile');
+    Route::post('/update', 'Frontend\ProfileController@update')->name('updateProfile');
+});

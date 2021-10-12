@@ -43,8 +43,8 @@
                                         data-bs-toggle="dropdown">
                                         <span>
                                             <img class="thumb-nail rounded-circle"
-                                                src="https://upload.wikimedia.org/wikipedia/vi/thumb/d/d3/Starbucks_Corporation_Logo_2011.svg/1024px-Starbucks_Corporation_Logo_2011.svg.png"
-                                                alt="" width="21px">
+                                                src="{{ Auth::user()->image }}"
+                                                alt="" width="23px" height="23px">
                                         </span>
 
                                     </a>
@@ -52,7 +52,7 @@
                                         @csrf
                                     </form>
                                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                        <li><a class="dropdown-item" href="#">Profile</a></li>
+                                        <li><a class="dropdown-item" href="{{ route('profile') }}">Profile</a></li>
                                         <li><a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                 document.getElementById('logout-form').submit();">Đăng xuất</a></li>
                                     </ul>
