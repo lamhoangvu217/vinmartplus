@@ -81,7 +81,7 @@ Route::group(['middleware' => ['auth']], function () {
 });
 
 
-Route::group(['prefix' => 'profile'], ['middleware' => ['auth']], function () {
+Route::group(['middleware' => ['auth'], 'prefix' => 'profile'], function () {
     Route::get('/', 'Frontend\ProfileController@index')->name('profile');
-    Route::post('/update', 'Frontend\ProfileController@update')->name('updateProfile');
+    Route::post('/update/{id}', 'Frontend\ProfileController@update')->name('updateProfile');
 });
