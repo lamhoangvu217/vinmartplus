@@ -73,7 +73,7 @@
                                 </div>
                                 
                                 <div class="cart-clear-wrap">
-                                    <div class="cart-clear btn-hover"  >
+                                    <div class="cart-clear btn-hover" >
                                         <a href="#" class="checkout"  onclick="checkout({{Cart::content()->count()}})"   >Thanh toán</a>
                                     </div>
                                 </div>
