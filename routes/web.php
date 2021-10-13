@@ -32,6 +32,8 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::get('/sendemail', 'SendEmailController@index')->name('sendemail');
+Route::post('/sendemail/send', 'SendEmailController@send');
 
 
 Route::group(['prefix' => 'admin'], function () {

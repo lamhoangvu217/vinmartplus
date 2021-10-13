@@ -56,6 +56,7 @@
                 <ul>
                   <li>Mua Online: 0247 1066866</li>
                   <li>Email: cskh@winmart.masangroup.com</li>
+                  <li><a target="_blank" href="{{ route('sendemail')}}"><button class="btn btn-warning mt-2"><strong>Support</strong></button></a></li>
                 </ul>
               </div>
             </div>
