@@ -101,6 +101,7 @@
     </div>
     <!-- app-root @e -->
     <!-- JavaScript -->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="{{asset('/backend/js/bundle.js?ver=2.4.0')}}"></script>
     <script src="{{asset('/backend/js/scripts.js?ver=2.4.0')}}"></script>
     <script src="{{asset('/backend/js/charts/chart-ecommerce.js?ver=2.4.0')}}"></script>
