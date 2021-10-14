@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use App\Http\Requests\CheckingInfoRequest;
-use App\Models\Bills;
+use App\Models\Bill;
 use App\Models\BillDetail;
 class CheckOut extends Controller
 {
@@ -17,7 +17,7 @@ class CheckOut extends Controller
    }
    public function FinishShopping(CheckingInfoRequest $res ){
     $data=$res->all();
-    $new_bill = Bills::create($data);
+    $new_bill = Bill::create($data);
     $total=0;
     foreach(Cart::content() as $product){
     $detail =[
@@ -30,7 +30,7 @@ class CheckOut extends Controller
        Billdetail::create($detail);
        $total+=$product->price;
     }
-    Bills::where('id',$new_bill->id)->update(['total'=>$total]);
+    Bill::where('id',$new_bill->id)->update(['total'=>$total]);
     if ($new_bill) {
        
         Cart::destroy();
