@@ -22,7 +22,6 @@ $(".qty").change(function() {
                 $("span.product-count").html(data.count);
                 document.getElementById("cart-table").deleteRow(index);
                  $("a.checkout").addClass("disabled");
-
                 swal(data.status, data.message, "success");
             });
         } else {
@@ -88,13 +87,14 @@ $(".remove-cart").click(function() {
         if (data.status == "success") {
             if(data.total ==0){
                 $("a.checkout").addClass("disabled");
+                window.location.reload();
             }
             $("span.product-count").html(data.count);
             $("span.total").html(data.total + " đ");
             swal(data.status, data.message, "success");
             // swal({
             //     title: "Bạn có chắc chắn muốn xóa không?",
-            //     text: "Một khi đã khóa",
+            //     text: "Một khi đã khóa bạn sẽ không thể hoàn tác",
             //     icon: "warning",
             //     buttons: true,
             //     dangerMode: true,
@@ -114,8 +114,7 @@ $(".remove-cart").click(function() {
     });
 });
 function checkout(a){
- 
-    if(a==0)
+    if (a==0)
     {
         swal("Bạn chưa có sản phẩm nào trong giỏ hàng?", {
             buttons: ["Okee!", "Cancel!"],

@@ -28,7 +28,7 @@
                                         </div>
                                         <div class="data">
                                             <div class="amount">120.000.000 đ</div>
-                                            <div class="info"><strong>89.000.000 đ</strong> trong tháng trước</div>
+                                            
                                         </div>
                                         
                                     </div><!-- .card-inner -->
@@ -56,14 +56,14 @@
                                         <li class="item">
                                             <div class="info">
                                                 <div class="title">Khách hàng</div>
-                                                <div class="count">2,327</div>
+                                                <div class="count">{{ $customers->count() }}</div>
                                             </div>
                                             <i class="fas fa-user-friends"></i>
                                         </li>
                                         <li class="item">
                                             <div class="info">
                                                 <div class="title">Sản phẩm</div>
-                                                <div class="count">674</div>
+                                                <div class="count">{{ $products->count() }}</div>
                                             </div>
                                             <i class="fas fa-cube"></i>
                                         </li>

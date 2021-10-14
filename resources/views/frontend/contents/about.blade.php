@@ -20,7 +20,7 @@
             hàng.
           </p>
           <img
-            src="https://vinmart.com/images/gioi-thieu-ve-vinmart-1.png"
+            src="https://winmart.vn/_next/static/images/gioi-thieu-ve-vinmart-1-a51d67ac52fb8d71bdeb2ad58123e1ff.png"
             alt=""
           />
           <p class="mt-3">
@@ -35,7 +35,7 @@
             hội hiện đại.
           </p>
           <img
-            src="https://vinmart.com/images/gioi-thieu-ve-vinmart-2.png"
+            src="https://winmart.vn/_next/static/images/gioi-thieu-ve-vinmart-2-72db5e30b1f0773bc0d4994cc6a303b4.png"
             alt=""
           />
           <p class="mt-3">
@@ -45,7 +45,7 @@
             dùng và chất lượng dịch vụ trong đời sống người Việt.
           </p>
           <img
-            src="https://vinmart.com/images/gioi-thieu-ve-vinmart-3.png"
+            src="https://winmart.vn/_next/static/images/gioi-thieu-ve-vinmart-3-e2f2568ddff9529d9c7664e6f03dddcb.png"
             alt=""
           />
           <p class="mt-3">
