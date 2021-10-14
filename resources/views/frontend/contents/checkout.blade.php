@@ -119,7 +119,7 @@
                                     </div>
                                     <div class="your-order-info order-total">
                                         <ul>
-                                            <li>Tổng tiền <span>{{ $total }} </span></li>
+                                            <li>Tổng tiền <span>{{ Cart::total() }} </span></li>
                                         </ul>
                                     </div>
                                 </div>

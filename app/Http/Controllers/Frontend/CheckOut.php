@@ -18,6 +18,7 @@ class CheckOut extends Controller
    public function FinishShopping(CheckingInfoRequest $res ){
     $data=$res->all();
     $new_bill = Bills::create($data);
+    $total=0;
     foreach(Cart::content() as $product){
     $detail =[
         'bill_id' =>$new_bill->id,
@@ -27,7 +28,9 @@ class CheckOut extends Controller
         'total' =>$product->price*$product->qty
        ];
        Billdetail::create($detail);
+       $total+=$product->price;
     }
+    Bills::where('id',$new_bill->id)->update(['total'=>$total]);
     if ($new_bill) {
        
         Cart::destroy();

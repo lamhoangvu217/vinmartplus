@@ -77,56 +77,60 @@
                                 </ul>
                             </div>
                         </div><!-- .nk-tb-item -->
-                        <div class="nk-tb-item">
-                            <div class="nk-tb-col nk-tb-col-check">
-                                <div class="custom-control custom-control-sm custom-checkbox notext">
-                                    <input type="checkbox" class="custom-control-input" id="uid1">
-                                    <label class="custom-control-label" for="uid1"></label>
+                        @foreach($bills as $data)
+                            <div class="nk-tb-item">
+                                <div class="nk-tb-col nk-tb-col-check">
+                                    <div class="custom-control custom-control-sm custom-checkbox notext">
+                                        <input type="checkbox" class="custom-control-input" id="uid1">
+                                        <label class="custom-control-label" for="uid1"></label>
+                                    </div>
+                                </div>
+                              
+                                <div class="nk-tb-col">
+                                    <span class="tb-lead"><a href="#">{{$data->id}}</a></span>
+                                </div>
+                                <div class="nk-tb-col tb-col-md">
+                                    <span class="tb-sub">{{$data->Name}}</span>
+                                </div>
+                                
+                                <div class="nk-tb-col tb-col-sm">
+                                    <span class="tb-sub">{{$data->Phone}}</span>
+                                </div>
+                                <div class="nk-tb-col tb-col-md">
+                                    <span class="tb-sub text-primary">{{$data->Address}}</span>
+                                </div>
+                                <div class="nk-tb-col">
+                                    <span class="dot bg-warning d-mb-none"></span>
+                                    <span class="badge badge-sm badge-dot has-bg badge-warning d-none d-mb-inline-flex">{{$data->Status}}</span>
+                                </div>
+                                <div class="nk-tb-col">
+                                    <span class="tb-lead">$ {{$data->total}}</span>
+                                </div>
+                                <div class="nk-tb-col nk-tb-col-tools">
+                                    <ul class="nk-tb-actions gx-1">
+                                        <li class="nk-tb-action-hidden"><a href="#" class="btn btn-icon btn-trigger btn-tooltip" title="Mark as Delivered" data-toggle="dropdown">
+                                                <em class="icon ni ni-truck"></em></a></li>
+                                        <li class="nk-tb-action-hidden"><a href="#" class="btn btn-icon btn-trigger btn-tooltip" title="View Order" data-toggle="dropdown">
+                                                <em class="icon ni ni-eye"></em></a></li>
+                                        <li>
+                                            <div class="drodown mr-n1">
+                                                <a href="#" class="dropdown-toggle btn btn-icon btn-trigger" data-toggle="dropdown"><em class="icon ni ni-more-h"></em></a>
+                                                <div class="dropdown-menu dropdown-menu-right">
+                                                    <ul class="link-list-opt no-bdr">
+                                                        <li><a href="#"><em class="icon ni ni-eye"></em><span>Order Details</span></a></li>
+                                                        <li><a href="#"><em class="icon ni ni-truck"></em><span>Mark as Delivered</span></a></li>
+                                                        <li><a href="#"><em class="icon ni ni-money"></em><span>Mark as Paid</span></a></li>
+                                                        <li><a href="#"><em class="icon ni ni-report-profit"></em><span>Send Invoice</span></a></li>
+                                                        <li><a href="#"><em class="icon ni ni-trash"></em><span>Remove Order</span></a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
                                 </div>
                             </div>
-                            <div class="nk-tb-col">
-                                <span class="tb-lead"><a href="#">#95954</a></span>
-                            </div>
-                            <div class="nk-tb-col tb-col-md">
-                                <span class="tb-sub">email@gmail.com</span>
-                            </div>
-                            
-                            <div class="nk-tb-col tb-col-sm">
-                                <span class="tb-sub">Arnold Armstrong</span>
-                            </div>
-                            <div class="nk-tb-col tb-col-md">
-                                <span class="tb-sub text-primary">3 Items</span>
-                            </div>
-                            <div class="nk-tb-col">
-                                <span class="dot bg-warning d-mb-none"></span>
-                                <span class="badge badge-sm badge-dot has-bg badge-warning d-none d-mb-inline-flex">Đang xử lý</span>
-                            </div>
-                            <div class="nk-tb-col">
-                                <span class="tb-lead">$ 249.75</span>
-                            </div>
-                            <div class="nk-tb-col nk-tb-col-tools">
-                                <ul class="nk-tb-actions gx-1">
-                                    <li class="nk-tb-action-hidden"><a href="#" class="btn btn-icon btn-trigger btn-tooltip" title="Mark as Delivered" data-toggle="dropdown">
-                                            <em class="icon ni ni-truck"></em></a></li>
-                                    <li class="nk-tb-action-hidden"><a href="#" class="btn btn-icon btn-trigger btn-tooltip" title="View Order" data-toggle="dropdown">
-                                            <em class="icon ni ni-eye"></em></a></li>
-                                    <li>
-                                        <div class="drodown mr-n1">
-                                            <a href="#" class="dropdown-toggle btn btn-icon btn-trigger" data-toggle="dropdown"><em class="icon ni ni-more-h"></em></a>
-                                            <div class="dropdown-menu dropdown-menu-right">
-                                                <ul class="link-list-opt no-bdr">
-                                                    <li><a href="#"><em class="icon ni ni-eye"></em><span>Order Details</span></a></li>
-                                                    <li><a href="#"><em class="icon ni ni-truck"></em><span>Mark as Delivered</span></a></li>
-                                                    <li><a href="#"><em class="icon ni ni-money"></em><span>Mark as Paid</span></a></li>
-                                                    <li><a href="#"><em class="icon ni ni-report-profit"></em><span>Send Invoice</span></a></li>
-                                                    <li><a href="#"><em class="icon ni ni-trash"></em><span>Remove Order</span></a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div><!-- .nk-tb-item -->
+                        @endforeach
+                      <!-- .nk-tb-item -->
                     </div><!-- .nk-tb-list -->
                     <div class="card">
                         <div class="card-inner">
@@ -143,7 +147,8 @@
                                     </ul><!-- .pagination -->
                                 </div>
                                 <div class="g">
-                                    <div class="pagination-goto d-flex justify-content-center justify-content-md-start gx-3">
+                                    {{$bills->links()}}
+                                    {{-- <div class="pagination-goto d-flex justify-content-center justify-content-md-start gx-3">
                                         <div>Page</div>
                                         <div>
                                             <select class="form-select form-select-sm" data-search="on" data-dropdown="xs center">
@@ -169,7 +174,7 @@
                                             </select>
                                         </div>
                                         <div>OF 102</div>
-                                    </div>
+                                    </div> --}}
                                 </div><!-- .pagination-goto -->
                             </div><!-- .nk-block-between -->
                         </div>
