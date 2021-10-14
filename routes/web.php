@@ -26,7 +26,7 @@ Route::get('/product', 'Backend\ProductController@product');
 Route::get('/detail/{id}', 'Frontend\ProductController@detail')->name('detail');
 
 Route::get('/render-product', 'Frontend\ProductController@renderProductByCategory')->name('renderProduct');
-
+Route::get('/render-product-search', 'Frontend\ProductController@renderProductBySearch')->name('renderProductBySearch');
 Auth::routes();
 
 

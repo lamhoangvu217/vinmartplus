@@ -7,6 +7,7 @@ use App\Models\Product;
 use App\Models\ProductCategory;
 use App\Models\ProductImage;
 use Illuminate\Http\Request;
+use Laravel\Ui\Presets\React;
 
 class ProductController extends Controller
 {
@@ -51,14 +52,12 @@ class ProductController extends Controller
                     <div class="product-content">
                         <h3><a href="' . route('detail', $product->id) . '">' . $product->name . '</a></h3>
                         <div class="product-price"> ';
-                        if ($product->promotion->percent == 0) {
-                            $html .= '<span class="old-price-current"> ' . number_format($product->price, 0, '', '.') . ' đ </span>';
-
-                        }
-                        else {
-                            $html .= '<span class="old-price"> ' . number_format($product->price, 0, '', '.') . ' đ </span>
+            if ($product->promotion->percent == 0) {
+                $html .= '<span class="old-price-current"> ' . number_format($product->price, 0, '', '.') . ' đ </span>';
+            } else {
+                $html .= '<span class="old-price"> ' . number_format($product->price, 0, '', '.') . ' đ </span>
                                             <span class="new-price"> ' . number_format(($product->price * $product->promotion->percent) / 100, 0, '', '.') . ' đ </span>';
-                        };
+            };
 
             $html .= '
                         </div>
@@ -70,13 +69,26 @@ class ProductController extends Controller
     }
     public function renderProductByCategory(Request $request)
     {
-        if ($request->id) {
+        if ($request->id != 'all') {
             $category = $request->id;
+            $products = Product::where('product_category_id', $category)->paginate(10);
         } else {
             $category = 'all';
+            $products = Product::paginate(10);
         }
-        $products = Product::where('product_category_id', $category)->paginate(10);
         $html = $this->renderHtml($products);
+        return $html;
+    }
+    public function renderProductBySearch(Request $request)
+    {
+        if ($request->get('inputVal') === '') {
+            $data = Product::paginate(10);
+            $html = $this->renderHtml($data);
+        } else {
+            $inputVal = $request->get('inputVal');
+            $data = Product::where('name', 'LIKE', '%' . $inputVal . '%')->get();
+            $html = $this->renderHtml($data);
+        }
         return $html;
     }
 }

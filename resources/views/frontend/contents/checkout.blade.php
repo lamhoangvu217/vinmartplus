@@ -1,7 +1,7 @@
 @extends('frontend.layouts.main')
 @section('content')
 <form action="{{ route('finishshopping') }}" action="POST">
-    {{ csrf_field() }}
+{{ csrf_field() }}
     <div class="checkout-main-area pb-100 pt-100">
         <div class="container">
             <div class="checkout-wrap pt-30">
@@ -39,27 +39,7 @@
                                     </div>
                                     <div class="col-lg-12">
                                         <div class="billing-info mb-20">
-                                            <div class="col-lg-12 col-md-6 col-12">
-                                                <div class="cart-calculate-discount-wrap mb-15">
-                                                    <div class="calculate-discount-content d-flex">
-                                                        <div class="select-style">
-                                                            <select class="select-two-active"
-                                                                name="calc_shipping_provinces">
-                                                                <option value="">Tỉnh / Thành phố</option>
-                                                            </select>
-                                                        </div>
-                                                        <div class="select-style"
-                                                            style="width: 220px; margin-left: 20px;">
-                                                            <select class="select-two-active" name="calc_shipping_district">
-                                                                <option value="">Quận / Huyện</option>
-                                                            </select>
-                                                        </div>
-
-                                                    </div>
-
-                                                </div>
-
-                                            </div>
+                                            
                                             <input class="billing-address" placeholder="Số nhà và tên đường" type="text"
                                                 name="Address" />
                                             @error('Address')
@@ -109,17 +89,14 @@
                                             <li>Tạm tính <span>{{ Cart::total() }}đ </span></li>
                                         </ul>
                                     </div>
-                                    <div class="your-order-info order-shipping">
-                                        <ul>
-                                            <li>
-                                                Phí vận chuyển
-                                                <p>30.000 đ</p>
-                                            </li>
-                                        </ul>
-                                    </div>
+                                    
                                     <div class="your-order-info order-total">
                                         <ul>
+<<<<<<< HEAD
                                             <li>Tổng tiền <span>{{ Cart::total() }} </span></li>
+=======
+                                            <li>Tổng tiền <span>{{ $total }}đ </span></li>
+>>>>>>> 59a781811f0c5e50547226ffe60969d770d7aa4c
                                         </ul>
                                     </div>
                                 </div>

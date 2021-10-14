@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="{{ asset('urdan/css/vendor/bootstrap.min.css') }}" />
     <link rel="stylesheet" href="{{ asset('urdan/css/style.css') }}" />
     <link rel="stylesheet" href="{{ asset('urdan/css/vendor/themify-icons.css') }}" />
-    <link rel="stylesheet" href="{{ asset('urdan/css/vendor/font-awesome.min.css') }}" />
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
     <link rel="stylesheet" href="{{ asset('urdan/css/plugins/swiper.min.css') }}" />
     <link rel="stylesheet" href="{{ asset('urdan/css/plugins/jquery-ui.css') }}" />
     <link rel="stylesheet" href="{{ asset('urdan/css/vendor/pe-icon-7-stroke.css') }}" />
@@ -60,6 +60,7 @@ span.remove-cart:hover {
     <script src="{{ asset('urdan/js/vendor/bootstrap.min.js') }}"></script>
     <script src="{{ asset('urdan/js/main.js') }}"></script>
     <script src="{{ asset('urdan/js/cart.js') }}"></script>
+    <script src="{{ asset('urdan/js/searchpd.js') }}"></script>
     <script src="{{ asset('urdan/js/category.js') }}"></script>
     {{-- <script src="{{asset('urdan/js/plugins/jquery-ui.js')}}"></script> --}}
 
