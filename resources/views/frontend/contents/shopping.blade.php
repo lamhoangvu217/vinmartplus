@@ -12,7 +12,6 @@
         background-color: #e17055;
     }
 </style>
-<h1 style="text-align: center;">Mua sắm</h1>
 
 <div class="shop-area pt-100 pb-100">
     <div class="container">

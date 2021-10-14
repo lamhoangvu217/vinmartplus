@@ -28,11 +28,11 @@
               >
                 <h3 class="footer-title">Về chúng tôi</h3>
                 <ul>
-                  <li><a href="about-us.html">Giới thiệu về VinMart</a></li>
-                  <li><a href="#">Danh sách cửa hàng</a></li>
-                  <li><a href="#">Quản lý chất lượng</a></li>
-                  <li><a href="#">Điều khoản và điều kiện giao dịch</a></li>
-                  <li><a href="#">Chính sách bảo mật và chia sẻ thông tin</a></li>
+                  <li><a target="_blank" href="{{ route('about') }}">Giới thiệu về VinMart</a></li>
+                  <li><a target="_blank" href="https://winmart.vn/info/danh-sach-cua-hang">Danh sách cửa hàng</a></li>
+                  <li><a target="_blank" href="https://winmart.vn/info/quan-ly-chat-luong">Quản lý chất lượng</a></li>
+                  <li><a target="_blank" href="https://winmart.vn/info/transaction-policy">Điều khoản và điều kiện giao dịch</a></li>
+                  <li><a target="_blank" href="https://winmart.vn/info/privacy-policy-and-info-sharing">Chính sách bảo mật và chia sẻ thông tin</a></li>
                 </ul>
               </div>
             </div>
@@ -40,11 +40,11 @@
               <div class="footer-widget footer-list mb-40">
                 <h3 class="footer-title">Hỗ trợ khách hàng</h3>
                 <ul>
-                  <li><a href="my-account.html">Trung tâm hỗ trợ khách hàng</a></li>
-                  <li><a href="#">Chính sách thanh toán</a></li>
-                  <li><a href="wishlist.html">Chính sách giao hàng</a></li>
-                  <li><a href="#">Chính sách đổi trả</a></li>
-                  <li><a href="#">Chính sách chiếu khấu ưu đãi mua sắm</a></li>
+                  <li><a target="_blank" href="{{ route('sendemail')}}">Trung tâm hỗ trợ khách hàng</a></li>
+                  <li><a target="_blank" href="https://winmart.vn/info/payment-policy">Chính sách thanh toán</a></li>
+                  <li><a target="_blank" href="https://winmart.vn/info/delivery-policy">Chính sách giao hàng</a></li>
+                  <li><a target="_blank" href="https://winmart.vn/info/return-and-exchange-policy">Chính sách đổi trả</a></li>
+                  <li><a target="_blank" href="https://winmart.vn/info/incentives-shopping">Chính sách chiếu khấu ưu đãi mua sắm</a></li>
                 </ul>
               </div>
             </div>
@@ -54,8 +54,8 @@
               >
                 <h3 class="footer-title">Chăm sóc khách hàng</h3>
                 <ul>
-                  <li>Mua Online: 0247 1066866</li>
-                  <li>Email: cskh@winmart.masangroup.com</li>
+                  <li>Mua Online: <a href="callto:+842471066866">0247 1066866</a> </li>
+                  <li>Email: <a href="mailto:cskh@winmart.masangroup.com">cskh@winmart.masangroup.com</a></li>
                   <li><a target="_blank" href="{{ route('sendemail')}}"><button class="btn btn-warning mt-2"><strong>Support</strong></button></a></li>
                 </ul>
               </div>

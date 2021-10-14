@@ -11,17 +11,18 @@
     <!-- Open Graph (OG) meta tags are snippets of code that control how URLs are displayed when shared on social media  -->
 
     <!-- Add site Favicon -->
-
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
     <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
     <!-- All CSS is here ================================ -->
     <link rel="stylesheet" href="{{ asset('urdan/css/vendor/bootstrap.min.css') }}" />
     <link rel="stylesheet" href="{{ asset('urdan/css/style.css') }}" />
     <link rel="stylesheet" href="{{ asset('urdan/css/vendor/themify-icons.css') }}" />
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
-    <link rel="stylesheet" href="{{ asset('urdan/css/plugins/swiper.min.css') }}" />
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+
     <link rel="stylesheet" href="{{ asset('urdan/css/plugins/jquery-ui.css') }}" />
     <link rel="stylesheet" href="{{ asset('urdan/css/vendor/pe-icon-7-stroke.css') }}" />
-
+    <link rel="stylesheet" href="{{ asset('urdan/css/custom-css.css')}}">
     {{-- <link rel="stylesheet" href="{{ asset('urdan/css/plugins/animate.css') }}" /> --}}
     {{-- <link rel="stylesheet" href="{{ asset('urdan/css/plugins/aos.css') }}" /> --}}
     {{-- <link rel="stylesheet" href="{{ asset('urdan/css/plugins/magnific-popup.css') }}" /> --}}
@@ -36,15 +37,17 @@
 </head>
 
 <body>
-    <style> 
-    a.disabled {
-  pointer-events: none;
-  cursor: default;
-}
-span.remove-cart:hover {
-   color: red;
-   cursor: pointer;
-}
+    <style>
+        a.disabled {
+            pointer-events: none;
+            cursor: default;
+        }
+
+        span.remove-cart:hover {
+            color: red;
+            cursor: pointer;
+        }
+
     </style>
     <div class="main-wrapper main-wrapper-2">
         @include('frontend.partials.header')
@@ -52,8 +55,9 @@ span.remove-cart:hover {
         @include('frontend.partials.footer')
 
     </div>
-    
+
     <!-- All JS is here -->
+    <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="{{ asset('urdan/js/vendor/jquery-3.6.0.min.js') }}"></script>
     <script src="{{ asset('urdan/js/vendor/popper.min.js') }}"></script>
@@ -79,11 +83,10 @@ span.remove-cart:hover {
     {{-- <script src="{{asset('urdan/js/plugins/aos.js')}}"></script> --}}
     {{-- <script src="{{asset('urdan/js/plugins/magnific-popup.js')}}"></script> --}}
     {{-- <script src="{{asset('urdan/js/plugins/jquery.syotimer.min.js')}}"></script> --}}
-    <script src="{{ asset('urdan/js/plugins/swiper.min.js') }}"></script>
     {{-- <script src="{{asset('urdan/js/plugins/imagesloaded.pkgd.min.js')}}"></script> --}}
     {{-- <script src="{{asset('urdan/js/plugins/isotope.pkgd.min.js')}}"></script> --}}
     <!-- Main JS -->
-    
+
     @yield('js')
 </body>
 
