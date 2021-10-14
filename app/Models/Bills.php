@@ -10,5 +10,7 @@ class Bills extends Model
     public function Bill() {
         return $this->belongsTo(User::class);
     }
-
+    public function billdetails() {
+        return $this->hasMany(billdetails::class);
+    }
 }

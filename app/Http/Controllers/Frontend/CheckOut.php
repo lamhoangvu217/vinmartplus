@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use App\Http\Requests\CheckingInfoRequest;
 use App\Models\Bills;
+use App\Models\BillDetail;
 class CheckOut extends Controller
 {
    public  function Checkout(){
@@ -17,7 +18,18 @@ class CheckOut extends Controller
    public function FinishShopping(CheckingInfoRequest $res ){
     $data=$res->all();
     $new_bill = Bills::create($data);
+    foreach(Cart::content() as $product){
+    $detail =[
+        'bill_id' =>$new_bill->id,
+        'product_id'=>$product->id,
+        'qty' =>$product->qty,
+        'discount'=>$product->options->discount,
+        'total' =>$product->price*$product->qty
+       ];
+       Billdetail::create($detail);
+    }
     if ($new_bill) {
+       
         Cart::destroy();
         
         return redirect()->route('product');
