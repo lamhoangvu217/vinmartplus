@@ -92,11 +92,7 @@
                                     
                                     <div class="your-order-info order-total">
                                         <ul>
-<<<<<<< HEAD
-                                            <li>Tổng tiền <span>{{ Cart::total() }} </span></li>
-=======
                                             <li>Tổng tiền <span>{{ $total }}đ </span></li>
->>>>>>> 59a781811f0c5e50547226ffe60969d770d7aa4c
                                         </ul>
                                     </div>
                                 </div>
