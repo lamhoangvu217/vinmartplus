@@ -19,6 +19,7 @@ class CreateBillsTable extends Migration
             $table->string("Phone");
             $table->string("Address");
             $table->string("Email");
+            $table->foreign("Email")->references("email")->on("users")->onDelete("cascade");
             $table->boolean("Status")->default(0);
             $table->timestamps();
         });

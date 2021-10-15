@@ -128,11 +128,12 @@
                         @endforeach
                        
                     </div><!-- .nk-tb-list -->
+                    
                     <div class="card">
                         <div class="card-inner">
                             <div class="nk-block-between-md g-3">
                                 <div class="g">
-                                    {{-- {{ $user->links() }} --}}
+                                    {{ $employee->links() }}
                                 </div>
                                 
                             </div><!-- .nk-block-between -->
