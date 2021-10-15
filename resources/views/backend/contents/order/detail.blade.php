@@ -58,22 +58,19 @@
                                                 <div class="profile-ud-item">
                                                     <div class="profile-ud wider">
                                                         <span class="profile-ud-label">Địa chỉ email</span>
-                                                        <span
-                                                            class="profile-ud-value">{{ $bill->Email }}</span>
+                                                        <span class="profile-ud-value">{{ $bill->Email }}</span>
                                                     </div>
                                                 </div>
                                                 <div class="profile-ud-item">
                                                     <div class="profile-ud wider">
                                                         <span class="profile-ud-label">Số điện thoại</span>
-                                                        <span
-                                                            class="profile-ud-value">{{ $bill->Phone }}</span>
+                                                        <span class="profile-ud-value">{{ $bill->Phone }}</span>
                                                     </div>
                                                 </div>
                                                 <div class="profile-ud-item">
                                                     <div class="profile-ud wider">
                                                         <span class="profile-ud-label">Địa chỉ nhận hàng</span>
-                                                        <span
-                                                            class="profile-ud-value">{{ $bill->Address }}</span>
+                                                        <span class="profile-ud-value">{{ $bill->Address }}</span>
                                                     </div>
                                                 </div>
                                                 <div class="profile-ud-item">
@@ -92,8 +89,7 @@
                                                 <div class="profile-ud-item">
                                                     <div class="profile-ud wider">
                                                         <span class="profile-ud-label">Họ và tên</span>
-                                                        <span
-                                                            class="profile-ud-value">{{ $bill->Name }}</span>
+                                                        <span class="profile-ud-value">{{ $bill->Name }}</span>
                                                     </div>
                                                 </div>
 
@@ -121,18 +117,17 @@
                                                         </tr>
                                                     </thead>
                                                     <tbody>
-                                                        <tr>
-                                                            @foreach ($billdetail as $item)
+                                                        @foreach ($billdetail as $item)
+                                                            <tr>
                                                                 <td>{{ $item->product->name }}</td>
                                                                 <td>{{ $item->product->price }}</td>
                                                                 <td>{{ $item->qty }}</td>
                                                                 <td>{{ $item->product->promotion->percent }}%</td>
                                                                 <td>{{ number_format($item->total, 0, '', '.') }} đ</td>
-                                                            @endforeach
-                                                            {{-- <td>otto</td> --}}
-                                                            
-                                                        </tr>
 
+                                                                {{-- <td>otto</td> --}}
+                                                            </tr>
+                                                        @endforeach
                                                     </tbody>
                                                 </table>
                                             </div>
