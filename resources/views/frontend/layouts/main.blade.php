@@ -56,16 +56,19 @@
 
     </div>
 
+
     <!-- All JS is here -->
+    <script src="{{ asset('urdan/js/vendor/jquery-3.6.0.min.js') }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.devbridge-autocomplete/1.4.10/jquery.autocomplete.min.js"></script>
     <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    <script src="{{ asset('urdan/js/vendor/jquery-3.6.0.min.js') }}"></script>
     <script src="{{ asset('urdan/js/vendor/popper.min.js') }}"></script>
     <script src="{{ asset('urdan/js/vendor/bootstrap.min.js') }}"></script>
     <script src="{{ asset('urdan/js/main.js') }}"></script>
     <script src="{{ asset('urdan/js/cart.js') }}"></script>
     <script src="{{ asset('urdan/js/searchpd.js') }}"></script>
     <script src="{{ asset('urdan/js/category.js') }}"></script>
+    <script src="{{ asset('urdan/js/search.js') }}"></script>
     {{-- <script src="{{asset('urdan/js/plugins/jquery-ui.js')}}"></script> --}}
 
     {{-- <script src="{{asset('urdan/js/vendor/jquery-migrate-3.3.2.min.js')}}"></script> --}}

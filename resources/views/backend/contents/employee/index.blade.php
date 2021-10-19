@@ -85,7 +85,7 @@
                                 </div>
                             </div>
                             <div class="nk-tb-col">
-                                <a href="html/ecommerce/customer-details.html">
+                                <a href="#">
                                     <div class="user-card">
                                         <div class="user-avatar bg-primary">
                                             <span>AB</span>
@@ -133,7 +133,7 @@
                         <div class="card-inner">
                             <div class="nk-block-between-md g-3">
                                 <div class="g">
-                                    {{ $employee->links() }}
+                                    {{-- {{ $employee->links() }} --}}
                                 </div>
                                 
                             </div><!-- .nk-block-between -->

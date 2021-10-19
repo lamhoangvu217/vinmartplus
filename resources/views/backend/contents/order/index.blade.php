@@ -45,12 +45,7 @@
                 <div class="nk-block">
                     <div class="nk-tb-list is-separate is-medium mb-3">
                         <div class="nk-tb-item nk-tb-head">
-                            <div class="nk-tb-col nk-tb-col-check">
-                                <div class="custom-control custom-control-sm custom-checkbox notext">
-                                    <input type="checkbox" class="custom-control-input" id="uid">
-                                    <label class="custom-control-label" for="uid"></label>
-                                </div>
-                            </div>
+                            
                             
                             <div class="nk-tb-col tb-col-sm"><span>Khách hàng</span></div>
                             <div class="nk-tb-col tb-col-md"><span>Số điện thoại</span></div>
@@ -64,9 +59,7 @@
                         </div><!-- .nk-tb-item -->
                         @foreach($bills as $data)
                             <div class="nk-tb-item">                           
-                                <div class="nk-tb-col">
-                                    <span class="tb-lead"><a href="#">{{$data->id}}</a></span>
-                                </div>
+                                
                                 <div class="nk-tb-col tb-col-md">
                                     <a style="color: gray;" href="{{ route('order.detail', $data->id) }}"><span class="tb-sub">{{$data->Name}}</span></a> 
                                 </div>

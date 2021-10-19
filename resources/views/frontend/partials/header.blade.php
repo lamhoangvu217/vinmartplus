@@ -54,7 +54,10 @@
             /* border-bottom: 1px solid rgba(255, 255, 255, .5); */
             transition: all 500ms cubic-bezier(0, 0.110, 0.35, 2);
         }
-
+        .user-not-login{
+            font-size: 36px;
+            
+        }
         .input-search:focus {
             width: 300px;
             border-radius: 0px; 
@@ -62,7 +65,12 @@
             /* border-bottom: 1px solid rgba(255, 255, 255, .5); */
             transition: all 500ms cubic-bezier(0, 0.110, 0.35, 2);
         }
-
+        .autocomplete-suggestions { border: 1px solid #999; background: #FFF; overflow: auto; }
+        .autocomplete-suggestion { padding: 2px 5px; white-space: nowrap; overflow: hidden; }
+        .autocomplete-selected { background: #F0F0F0; }
+        .autocomplete-suggestions strong { font-weight: normal; color: #3399FF; }
+        .autocomplete-group { padding: 2px 5px; }
+        .autocomplete-group strong { display: block; border-bottom: 1px solid #000; }
     </style>
 
 <header class="header-area header-responsive-padding header-height-1">
@@ -88,11 +96,14 @@
                 </div>
                 <div class="col-lg-4 col-md-6 col-6">
                     <div class="header-action-wrap d-flex justify-content-center align-items-center">
-
+                        <form action="{{ route('search') }}" method="GET" id="search-form">
                         <div class="search-box">
                             <button class="btn-search"><i class="fas fa-search"></i></button>
-                            <input type="text" class="input-search" placeholder="Gõ sản phẩm cần tìm">
+                                
+                                <input type="text" id="keyword" name="keywords"  class="input-search" placeholder="Gõ sản phẩm cần tìm">
+                            
                         </div>
+                    </form>
                         @if (Route::has('login'))
                             @auth
                                 <div class="dropdown " style="margin-right: 13px; margin-left: 13px;">
@@ -114,7 +125,7 @@
                                 </div>
                             @else
                                 <div class="header-action-style">
-                                    <a title="Login Register" href="{{ route('login') }}"><i class="pe-7s-user"></i></a>
+                                    <a title="Login Register"  href="{{ route('login') }}"><i class="pe-7s-user" style="font-size: 36px; margin-left: 13px;"></i></a>
                                 </div>
                             @endauth
 

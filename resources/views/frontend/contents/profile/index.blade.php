@@ -32,15 +32,15 @@
                                     <!-- Single Tab Content Start -->
                                     <div class="tab-pane fade" id="orders" role="tabpanel">
                                         <div class="myaccount-content">
-                                            <h3>Orders</h3>
+                                            <h3>Đơn hàng của bạn</h3>
                                             <div class="myaccount-table table-responsive text-center">
                                                 <table class="table table-bordered">
                                                     <thead class="thead-light">
                                                         <tr>
-                                                            <th>Order</th>
-                                                            <th>Date</th>
-                                                            <th>Status</th>
-                                                            <th>Total</th>
+                                                            <th>Mã đơn hàng</th>
+                                                            <th>Ngày đặt</th>
+                                                            <th>Trạng thái</th>
+                                                            <th>Tổng tiền</th>
                                                             <th>Action</th>
                                                         </tr>
                                                     </thead>
@@ -50,22 +50,9 @@
                                                             <td>Aug 22, 2018</td>
                                                             <td>Pending</td>
                                                             <td>$3000</td>
-                                                            <td><a href="cart.html" class="check-btn sqr-btn ">View</a></td>
+                                                            <td><a href="cart.html" class="check-btn sqr-btn ">Xem chi tiết</a></td>
                                                         </tr>
-                                                        <tr>
-                                                            <td>2</td>
-                                                            <td>July 22, 2018</td>
-                                                            <td>Approved</td>
-                                                            <td>$200</td>
-                                                            <td><a href="cart.html" class="check-btn sqr-btn ">View</a></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>3</td>
-                                                            <td>June 12, 2017</td>
-                                                            <td>On Hold</td>
-                                                            <td>$990</td>
-                                                            <td><a href="cart.html" class="check-btn sqr-btn ">View</a></td>
-                                                        </tr>
+                                                        
                                                     </tbody>
                                                 </table>
                                             </div>

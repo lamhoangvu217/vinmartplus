@@ -10,20 +10,23 @@ use Illuminate\Support\Facades\Redirect;
 
 class EmployeeController extends Controller
 {
-    public function index() {
-        $employees = Admin::paginate(5);
+    public function index()
+    {
+        $employees = Admin::paginate(10);
         return view('backend.contents.employee.index', compact('employees'));
     }
-    public function create() {
+    public function create()
+    {
         return view('backend.contents.employee.create');
     }
-    public function submitcreate(EmployeeRequest $res){
-       $data=$res->all();
-       $new_post = Admin::create($data);
-       if ($new_post) {
-           return Redirect::to('admin/employee/index');
-       } else {
-           return 'Error!!';
-       }
+    public function submitcreate(EmployeeRequest $res)
+    {
+        $data = $res->all();
+        $new_post = Admin::create($data);
+        if ($new_post) {
+            return Redirect::to('admin/employee/index');
+        } else {
+            return 'Error!!';
+        }
     }
 }

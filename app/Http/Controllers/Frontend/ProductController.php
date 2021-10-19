@@ -91,4 +91,10 @@ class ProductController extends Controller
         }
         return $html;
     }
+
+    public function searchProduct(Request $request){
+        $keyword = $request->input('keyword');
+        $products = Product::select('name')->where('name', 'LIKE', "%$keyword%")->get();
+        return response()->json($products);
+    }
 }

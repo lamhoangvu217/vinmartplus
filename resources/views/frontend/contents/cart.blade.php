@@ -6,10 +6,8 @@
             <div class="col-12">
                 <form action="#">
                     @if (Cart::content()->count() === 0)
-                        <h4>Không có sản phẩm nào trong giỏ hàng</h4>
-                        
-                            <a href="{{ route('product') }}">Tiếp tục mua sắm</a>
-                        
+                        <h4>Không có sản phẩm nào trong giỏ hàng</h4>                        
+                            <a href="{{ route('product') }}">Tiếp tục mua sắm</a>                        
                     @else
                         <div class="cart-table-content">
                             <div class="table-content">
@@ -26,11 +24,7 @@
                                             <th class="width-remove"></th>
                                         </tr>
                                     </thead>
-                                    <tbody>
-                                        
-                                        
-                                            
-                                        
+                                    <tbody>    
                                         @php
                                             $t = 0;
                                         @endphp
@@ -48,7 +42,7 @@
                     
                                             <td class="product-cart-price"><span class="amount">{{number_format($x->options->oldPrice , 0,'', '.')}} đ</span></td>
                                             <td class="product-cart-price"><span class="amount">{{ number_format($x->price, 0,'', '.') }} đ</span></td>
-                                            
+                                                
                                             <td class="cart-quality">
                                                 <div class="product-quality">   
                                                     @csrf

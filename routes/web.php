@@ -13,9 +13,10 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-Route::get('/', function () {
-    return view('frontend.contents.homepage');
-});
+Route::get('/', 'Frontend\HomeController@index')->name('trangchu');
+Route::get('/search', 'Frontend\HomeController@search')->name('search');
+
+
 Route::get('/shopping', 'Frontend\ProductController@product')->name('product');
 Route::get('/about', 'Frontend\AboutController@about')->name('about');
 Route::get('/product_detail', 'HomeController@productDetail')->name('productDetail');
@@ -27,6 +28,8 @@ Route::get('/detail/{id}', 'Frontend\ProductController@detail')->name('detail');
 
 Route::get('/render-product', 'Frontend\ProductController@renderProductByCategory')->name('renderProduct');
 Route::get('/render-product-search', 'Frontend\ProductController@renderProductBySearch')->name('renderProductBySearch');
+
+Route::get('/search-product', 'Frontend\ProductController@searchProduct')->name('searchProduct');
 Auth::routes();
 
 
@@ -53,6 +56,7 @@ Route::group(['middleware' => ['auth:admin']], function () {
         Route::group(['prefix' => 'order'], function () {
             Route::get('index', 'Backend\OrderController@index')->name('order.index');
             Route::get('detail/{id}', 'Backend\OrderController@detail')->name('order.detail');
+            Route::post('changeStatus', 'Backend\OrderController@changeStatus')->name('order.change');
         });
         Route::group(['prefix' => 'employee'], function () {
             Route::get('index', 'Backend\EmployeeController@index')->name('employee.index');

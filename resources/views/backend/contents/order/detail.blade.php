@@ -13,12 +13,12 @@
                                         class="text-primary small">Mã đơn hàng: {{ $bill->id }}</strong></h3>
                             </div>
                             <div class="nk-block-head-content">
-                                <a href="html/ecommerce/customers.html"
-                                    class="btn btn-outline-light bg-white d-none d-sm-inline-flex"><em
-                                        class="icon ni ni-arrow-left"></em><span>Back</span></a>
-                                <a href="html/ecommerce/customers.html"
+                                
+                                <a href="{{ route('order.index') }}"
+                                    class="btn btn-outline-light bg-white d-none d-sm-inline-flex"><span>Back</span></a>
+                                {{-- <a href="html/ecommerce/customers.html"
                                     class="btn btn-icon btn-outline-light bg-white d-inline-flex d-sm-none"><em
-                                        class="icon ni ni-arrow-left"></em></a>
+                                        class="icon ni ni-arrow-left"></em></a> --}}
                             </div>
                         </div>
                     </div><!-- .nk-block-head -->
@@ -31,6 +31,7 @@
                                             <a class="nav-link active" href="#"><i
                                                     class="fas fa-user-tag mr-1"></i><span>Thông tin đơn hàng</span></a>
                                         </li>
+                                        
                                         {{-- <li class="nav-item">
                                             <a class="nav-link" href="#"><em class="icon ni ni-repeat"></em><span>Đơn
                                                     hàng</span></a>
@@ -53,6 +54,7 @@
                                             <div class="nk-block-head">
                                                 <h5 class="title">Thông tin đơn hàng</h5>
                                                 <p>Thông tin cơ bản, như tên và địa chỉ giao hàng</p>
+                                                
                                             </div><!-- .nk-block-head -->
                                             <div class="profile-ud-list">
                                                 <div class="profile-ud-item">
@@ -73,12 +75,7 @@
                                                         <span class="profile-ud-value">{{ $bill->Address }}</span>
                                                     </div>
                                                 </div>
-                                                <div class="profile-ud-item">
-                                                    <div class="profile-ud wider">
-                                                        <span class="profile-ud-label">Số điện thoại</span>
-                                                        <span class="profile-ud-value">01713040400</span>
-                                                    </div>
-                                                </div>
+                                                
                                                 <div class="profile-ud-item">
                                                     <div class="profile-ud wider">
                                                         <span class="profile-ud-label">Ngày đặt hàng</span>
@@ -91,6 +88,30 @@
                                                         <span class="profile-ud-label">Họ và tên</span>
                                                         <span class="profile-ud-value">{{ $bill->Name }}</span>
                                                     </div>
+                                                </div>
+                                                <div class="profile-ud-item">
+                                                    <form action="" method="POST">
+                                                        @csrf
+                                                        <div class="profile-ud wider">
+                                                            
+                                                                <span class="profile-ud-label">Trạng thái đơn hàng</span>
+                                                            
+                                                                <select class="form-select" data-id="{{ $bill->id }}" id="order-status">
+                                                                    @if ($bill->Status === 0)
+                                                                        <option value="0" selected>Đang xử lý</option>
+                                                                        <option value="1">Đã hoàn thành</option>
+                                                                    @else
+                                                                        <option value="1" selected>Đã hoàn thành</option>
+                                                                        <option value="0" >Đang xử lý</option>
+                                                                    @endif
+                                                                    
+                                                                    {{-- <option selected>Đang xử lý</option>
+                                                                    <option>Đã hoàn thành</option> --}}
+                                                                    {{-- <option value="1">Đã hoàn thành</option>                                           --}}
+                                                                </select>
+                                                            
+                                                        </div>
+                                                    </form>
                                                 </div>
 
                                             </div><!-- .profile-ud-list -->
@@ -123,11 +144,22 @@
                                                                 <td>{{ $item->product->price }}</td>
                                                                 <td>{{ $item->qty }}</td>
                                                                 <td>{{ $item->product->promotion->percent }}%</td>
+                                                                
                                                                 <td>{{ number_format($item->total, 0, '', '.') }} đ</td>
 
                                                                 {{-- <td>otto</td> --}}
                                                             </tr>
+                                                           
                                                         @endforeach
+                                                        <tr>
+                                                            
+                                                                <td colspan="5" >
+                                                                    <div style="float: right; margin-right:105px; font-size: 25px; font-weight: bold;">
+                                                                        Tổng tiền: {{ number_format($billdetail->sum('total'), 0, '', '.') }} đ 
+                                                                    </div>
+                                                                </td>
+                                                           
+                                                        </tr>
                                                     </tbody>
                                                 </table>
                                             </div>
