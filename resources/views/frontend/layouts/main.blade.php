@@ -30,8 +30,7 @@
     {{-- <link rel="stylesheet" href="{{ asset('urdan/css/plugins/select2.min.css') }}" /> --}}
     {{-- <link rel="stylesheet" href="{{ asset('urdan/css/plugins/easyzoom.css') }}" /> --}}
     {{-- <link rel="stylesheet" href="{{ asset('urdan/css/plugins/slinky.css') }}" /> --}}
-
-
+    <script src="https://js.pusher.com/7.0/pusher.min.js"></script>
 
     @yield('css')
 </head>
@@ -62,6 +61,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.devbridge-autocomplete/1.4.10/jquery.autocomplete.min.js"></script>
     <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="{{ asset('js/notify.js')}}"></script>
     <script src="{{ asset('urdan/js/vendor/popper.min.js') }}"></script>
     <script src="{{ asset('urdan/js/vendor/bootstrap.min.js') }}"></script>
     <script src="{{ asset('urdan/js/main.js') }}"></script>

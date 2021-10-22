@@ -18,6 +18,7 @@
 
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
         integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <script src="https://js.pusher.com/7.0/pusher.min.js"></script>
     <script src="https://cdn.tiny.cloud/1/awaxf0qyu32cfdki89pxaillzpiyp5f9k4mqrfbf65kysnhr/tinymce/4/tinymce.min.js"
         referrerpolicy="origin"></script>
     <script>
@@ -108,7 +109,7 @@
     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
     <script src="{{ asset('/backend/js/bundle.js?ver=2.4.0') }}"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-
+    <script src="{{ asset('js/notify.js')}}"></script>
     <script src="{{ asset('/backend/js/scripts.js?ver=2.4.0') }}"></script>
     <script src="{{ asset('/backend/js/charts/chart-ecommerce.js?ver=2.4.0') }}"></script>
     <script src="{{ asset('/backend/js/orderStatus.js')}}"></script>

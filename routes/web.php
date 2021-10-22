@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+
+use App\Events\notification;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -44,7 +46,6 @@ Route::group(['prefix' => 'admin'], function () {
     Route::get('login', 'Admin\LoginController@showLoginForm')->name('login.admin');
     Route::post('login', 'Admin\LoginController@login');
     Route::post('logout', 'Admin\LoginController@logout')->name('logout.admin');
-    
 });
 Route::group(['middleware' => ['auth:admin']], function () {
     Route::get('/admin', 'Backend\DashboardController@index');
@@ -61,7 +62,7 @@ Route::group(['middleware' => ['auth:admin']], function () {
         Route::group(['prefix' => 'employee'], function () {
             Route::get('index', 'Backend\EmployeeController@index')->name('employee.index');
             Route::get('create', 'Backend\EmployeeController@create')->name('employee.create');
-            Route::post('submitcreate','Backend\EmployeeController@submitcreate')->name('employee.submitcreate');
+            Route::post('submitcreate', 'Backend\EmployeeController@submitcreate')->name('employee.submitcreate');
         });
         Route::group(['prefix' => 'product'], function () {
             Route::get('index', 'Backend\ProductController@index')->name('product.index');
@@ -88,14 +89,12 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('add', 'Frontend\CartController@addCart')->name('addtocart');
     Route::post('delete', 'Frontend\CartController@removeCart')->name('removefromcart');
     Route::post('changeqty', 'Frontend\CartController@updateCart')->name('changeqty');
-    Route::get('/checkout','Frontend\CheckOut@CheckOut')->name('checkout');
-    Route::get('/finishshopping','Frontend\CheckOut@FinishShopping')->name('finishshopping');
-
+    Route::get('/checkout', 'Frontend\CheckOut@CheckOut')->name('checkout');
+    Route::get('/finishshopping', 'Frontend\CheckOut@FinishShopping')->name('finishshopping');
 });
 
 
 Route::group(['middleware' => ['auth'], 'prefix' => 'profile'], function () {
     Route::get('/', 'Frontend\ProfileController@index')->name('profile');
     Route::post('/update/{id}', 'Frontend\ProfileController@update')->name('updateProfile');
-    
-}); 
+});
