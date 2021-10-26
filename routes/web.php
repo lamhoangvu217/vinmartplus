@@ -86,12 +86,12 @@ Route::group(['middleware' => ['auth:admin']], function () {
 });
 Route::group(['middleware' => ['auth']], function () {
     Route::get('cart', 'Frontend\CartController@index')->name('cart');
-    Route::post('add', 'Frontend\CartController@addCart')->name('addtocart');
     Route::post('delete', 'Frontend\CartController@removeCart')->name('removefromcart');
     Route::post('changeqty', 'Frontend\CartController@updateCart')->name('changeqty');
     Route::get('/checkout', 'Frontend\CheckOut@CheckOut')->name('checkout');
     Route::get('/finishshopping', 'Frontend\CheckOut@FinishShopping')->name('finishshopping');
 });
+Route::post('add', 'Frontend\CartController@addCart')->name('addtocart');
 
 
 Route::group(['middleware' => ['auth'], 'prefix' => 'profile'], function () {

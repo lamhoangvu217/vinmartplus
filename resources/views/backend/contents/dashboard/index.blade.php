@@ -22,13 +22,19 @@
                                             <div class="card-title">
                                                 <h6 class="title">Tổng doanh thu</h6>
                                             </div>
+                                            
                                             <div class="card-tools">
                                                 <a href="#" class="link">Xem báo cáo</a>
                                             </div>
                                         </div>
                                         <div class="data">
-                                            <div class="amount">{{ number_format($x, 0, '', '.') }}</div>
-                                            <canvas id="myChart" width="400" height="400"></canvas>
+                                            <div class="amount">{{ number_format($x, 0, '', '.') }} đ</div>
+                                            <div class="card-title mt-4">
+                                                <h6 class="title">Doanh thu tháng {{ $now }} </h6>
+                                            </div>
+                                            <div class="doanhthu" style="color: #fff; font-size: 20px;">
+                                                {{ number_format($thismonth, 0, '', '.') }} đ
+                                            </div>
                                         </div>
                                         
                                     </div><!-- .card-inner -->
@@ -78,42 +84,5 @@
         </div>
     </div>
 </div>
-<script src="https://cdn.jsdelivr.net/npm/chart.js@3.5.1/dist/chart.min.js"></script>
-<script>
-    var ctx = document.getElementById('myChart').getContext('2d');
-    var myChart = new Chart(ctx, {
-        type: 'bar',
-        data: {
-            labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-            datasets: [{
-                label: '# of Votes',
-                data: [12, 19, 3, 5, 2, 3],
-                backgroundColor: [
-                    'rgba(255, 99, 132, 0.2)',
-                    'rgba(54, 162, 235, 0.2)',
-                    'rgba(255, 206, 86, 0.2)',
-                    'rgba(75, 192, 192, 0.2)',
-                    'rgba(153, 102, 255, 0.2)',
-                    'rgba(255, 159, 64, 0.2)'
-                ],
-                borderColor: [
-                    'rgba(255, 99, 132, 1)',
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(255, 206, 86, 1)',
-                    'rgba(75, 192, 192, 1)',
-                    'rgba(153, 102, 255, 1)',
-                    'rgba(255, 159, 64, 1)'
-                ],
-                borderWidth: 1
-            }]
-        },
-        options: {
-            scales: {
-                y: {
-                    beginAtZero: true
-                }
-            }
-        }
-    });
-    </script>
+
 @endsection

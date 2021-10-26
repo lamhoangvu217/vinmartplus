@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use Gloudemans\Shoppingcart\Facades\Cart;
+use Illuminate\Support\Facades\Auth;
 
 class CartController extends Controller
 {
@@ -19,37 +20,45 @@ class CartController extends Controller
 
     public function addCart(Request $request)
     {
-        $product = Product::find($request->id);
+        if (Auth::check()) {
+            $product = Product::find($request->id);
 
-        $status = Cart::add(
-            [
-                'id' => $product->id,
-                'name' => $product->name,
-                'qty' => 1,
-                'price' => $product->price - ($product->price * $product->promotion->percent) / 100,
-                'weight' => 0,
-                'options' => [
-                    'thumbnail' => $product->thumbnail,
-                    'discount' => $product->promotion->percent,
-                    'oldPrice' => $product->price,
-                    'max' =>$product->qty
-                ],
-
-            ]
-        );
-        if ($status) {
-            return [
-                'message' => 'Thêm sản phẩm thành công !',
-                // 'count' => Cart::count(),
-                'count' => Cart::content()->count(),
-                'status' => 'success'
-            ];
+            $status = Cart::add(
+                [
+                    'id' => $product->id,
+                    'name' => $product->name,
+                    'qty' => 1,
+                    'price' => $product->price - ($product->price * $product->promotion->percent) / 100,
+                    'weight' => 0,
+                    'options' => [
+                        'thumbnail' => $product->thumbnail,
+                        'discount' => $product->promotion->percent,
+                        'oldPrice' => $product->price,
+                        'max' =>$product->qty
+                    ],
+    
+                ]
+            );
+            if ($status) {
+                return [
+                    'message' => 'Thêm sản phẩm thành công !',
+                    // 'count' => Cart::count(),
+                    'count' => Cart::content()->count(),
+                    'status' => 'success'
+                ];
+            } else {
+                return [
+                    'message' => 'Thêm sản phẩm không thành công ! Vui lòng thử lại',
+                    'status' => 'error'
+                ];
+            }
         } else {
             return [
-                'message' => 'Thêm sản phẩm không thành công ! Vui lòng thử lại',
-                'status' => 'error'
+                'message' => 'Bạn cần đăng nhập để mua hàng',
+                'status' => 'notauthorize'
             ];
         }
+        
         // return $product->promotion;
 
     }

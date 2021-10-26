@@ -7,25 +7,50 @@ use App\Models\BillDetail;
 use Illuminate\Http\Request;
 use App\Models\Bill;
 use App\Models\Product;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 
 class OrderController extends Controller
 {
-    public function index(){
-        $bills = Bill::paginate(5);
-        return view('backend.contents.order.index',compact('bills'));
+    public function index(Request $request)
+    {
+        Carbon::setLocale('vi'); // hiển thị ngôn ngữ tiếng việt.
+        $now = Carbon::now();
+        $keyword = '';
+        if ($request->keyword){
+            $keyword = htmlspecialchars($request->keyword);
+        }
+        if (!$request->status) {
+            $bills = Bill::where('phone', 'LIKE', '%' . $keyword . '%')->orderBy('created_at', 'desc')->paginate(5);
+        } else {
+            $status = $this->bindStatus($request->status);
+            $bills = Bill::where('status', $status)->where('phone', 'LIKE', '%' . $keyword . '%')->orderBy('created_at', 'desc')->paginate(5);
+        }
+        return view('backend.contents.order.index', compact('bills', 'now'));
     }
-    public function detail($id) {
+    public function detail($id)
+    {
         $bill = Bill::find($id);
         $billdetail = $bill->billdetails;
         return view('backend.contents.order.detail', compact('bill', 'billdetail'));
     }
-    public function changeStatus(Request $request) {
-        $check = Bill::where('id', $request->id)->update(['Status'=>$request->status]);
+    public function changeStatus(Request $request)
+    {
+        $check = Bill::where('id', $request->id)->update(['Status' => $request->status]);
         if ($check == 1) {
             return 'success';
         } else {
             return 'error';
+        }
+    }
+    public function bindStatus($status)
+    {
+        if ($status == 'dang-xu-ly') {
+            return '0';
+        } else if ($status == 'thanh-cong') {
+            return '1';
+        } else if ($status == 'that-bai') {
+            return '2';
         }
     }
 }

@@ -64,8 +64,27 @@ $(".add-cart").click(function() {
         if (data.status == "success") {
             $("span.product-count").html(data.count);
             swal(data.status, data.message, "success");
-        } else {
+        } else if (data.status == 'error') {
             swal(data.status, data.message, "error");
+        } else {
+            swal(data.message, {
+                buttons: {
+                  cancel: "Không mua nữa :)",
+                  catch: {
+                    text: "Đăng nhập",
+                    value: "catch",
+                  },
+                },
+              })
+              .then((value) => {
+                switch (value) {
+                  case "catch":
+                    window.location = '/login';
+                    break;              
+                  default:
+                    swal("Mua đi đm");
+                }
+              });
         }
     });
 });

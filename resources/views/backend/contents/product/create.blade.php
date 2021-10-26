@@ -20,7 +20,7 @@
                     </div><!-- .nk-block-head -->
                     <div class="nk-block">
                         <form action="{{ route('product.store') }}" method="POST" enctype="multipart/form-data">
-                            
+
                             {{ csrf_field() }}
                             <div class="row g-3">
                                 <div class="col-12">
@@ -29,15 +29,21 @@
                                         <div class="form-control-wrap">
                                             <input type="text" name="name" class="form-control" id="product-title">
                                         </div>
+                                        @error('name')
+                                            <span class="text-danger">{{ $message }}</span>
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="col-mb-6">
                                     <div class="form-group">
                                         <label class="form-label" for="regular-price">Giá</label>
                                         <div class="form-control-wrap">
-                                            <input type="text" name="price" onchange="formatCash(this,value);" class="form-control"
-                                                id="regular-price">
+                                            <input type="text" name="price" onchange="formatCash(this,value);"
+                                                class="form-control" id="regular-price">
                                         </div>
+                                        @error('price')
+                                            <span class="text-danger">{{ $message }}</span>
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="col-mb-6">
@@ -46,15 +52,21 @@
                                         <div class="form-control-wrap">
                                             <input type="text" name="qty" class="form-control" id="stock">
                                         </div>
+                                        @error('qty')
+                                            <span class="text-danger">{{ $message }}</span>
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="col-mb-6">
                                     <div class="form-group">
                                         <label class="form-label mr-3">Thumbnail</label>
-                                        
+
                                         <input type="file" class="mt-3" id="inputGroupFile01"
                                             accept="image/png, image/gif, image/jpeg" name="thumbnail">
                                     </div>
+                                    @error('thumbnail')
+                                        <span class="text-danger">{{ $message }}</span>
+                                    @enderror
                                 </div>
                                 <div class="col-mb-12">
                                     <div class="form-group">
@@ -71,7 +83,7 @@
                                         @foreach ($categories as $category)
                                             <option value="{{ $category->id }}">{{ $category->name }}</option>
                                         @endforeach
-     
+
                                     </select>
                                 </div>
                                 <div class="col-6">
@@ -80,22 +92,23 @@
                                         <select class="form-select" name="promotion_id">
                                             <option value="0" selected>Chọn chương trình khuyến mãi</option>
                                             @foreach ($promotions as $promotion)
-                                                <option value="{{ $promotion->id }}">{{ $promotion->name }}</option>                               
-                                            @endforeach                                      
+                                                <option value="{{ $promotion->id }}">{{ $promotion->name }}</option>
+                                            @endforeach
                                         </select>
                                     </div>
-                                    
+
                                 </div>
                                 <div class="col-12">
                                     <div class="form-group">
                                         <label class="form-label" for="tags">Thông tin chi tiết</label>
                                         <div class="form-control-wrap">
-                                            <textarea class="form-control" name="detail" placeholder="Nhập thông tin chi tiết sản phẩm"
-                                                id="detailarea" style="height: 100px"></textarea>
+                                            <textarea class="form-control" name="detail"
+                                                placeholder="Nhập thông tin chi tiết sản phẩm" id="detailarea"
+                                                style="height: 100px"></textarea>
                                         </div>
                                     </div>
                                 </div>
-                               
+
                                 <div class="col-12">
                                     <button class="btn btn-primary"><i class="fas fa-plus"></i><span>Add
                                             New</span></button>
@@ -116,7 +129,7 @@
         //         minimumFractionDigits: 0
         //     })
         //     a.value = formatter.format(str);
-            
+
         // }
 
     </script>

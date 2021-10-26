@@ -29,6 +29,9 @@
                                         <div class="form-control-wrap">
                                             <input type="text" name="name" class="form-control" id="product-title">
                                         </div>
+                                        @error('name')
+                                            <span class="text-danger">{{ $message }}</span>
+                                        @enderror
                                     </div>
                                 </div>   
                                 <div class="col-12">
@@ -37,6 +40,9 @@
                                         <div class="form-control-wrap">
                                             <input type="text" name="description" class="form-control" id="product-title">
                                         </div>
+                                        @error('description')
+                                            <span class="text-danger">{{ $message }}</span>
+                                        @enderror
                                     </div>
                                 </div>   
                                 <div class="col-12">

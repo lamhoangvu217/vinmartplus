@@ -52,8 +52,16 @@
                                     <div class="card-inner">
                                         <div class="nk-block">
                                             <div class="nk-block-head">
-                                                <h5 class="title">Thông tin đơn hàng</h5>
-                                                <p>Thông tin cơ bản, như tên và địa chỉ giao hàng</p>
+                                                <div class="row">
+                                                    <div class="col-10">
+                                                        <h5 class="title">Thông tin đơn hàng <span style="color: red;">{{ $bill->Status == '2' ? '(Đơn hàng đã hủy)' : ''}}</span></h5>
+                                                        <p>Thông tin cơ bản, như tên và địa chỉ giao hàng</p>
+                                                    </div>
+                                                    <div class="col-2">
+                                                        <button {{ $bill->Status == '2' ? 'disabled' : ''}} class="btn btn-danger">Hủy đơn hàng</button>
+
+                                                    </div>
+                                                </div>
                                                 
                                             </div><!-- .nk-block-head -->
                                             <div class="profile-ud-list">

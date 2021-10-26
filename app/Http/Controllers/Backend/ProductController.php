@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\ProductRequest;
 use App\Models\Product;
 use App\Models\ProductCategory;
 use App\Models\Promotion;
@@ -23,7 +24,7 @@ class ProductController extends Controller
         $promotions = Promotion::select('id', 'name')->get();
         return view('backend.contents.product.create', compact('categories', 'promotions'));
     }
-    public function store(Request $request)
+    public function store(ProductRequest $request)
     {
         $data = $request->all();
         if ($request->hasFile('thumbnail')) {

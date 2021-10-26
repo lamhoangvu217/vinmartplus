@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\CategoryRequest;
 use App\Models\ProductCategory;
 use Illuminate\Http\Request;
 
@@ -15,7 +16,7 @@ class CategoryController extends Controller
     public function create() {
         return view('backend.contents.category.create');
     }
-    public function store(Request $request) {
+    public function store(CategoryRequest $request) {
         $data = $request->all();
         $new_category = ProductCategory::create($data);
         if ($new_category) {
