@@ -20,12 +20,12 @@ class OrderController extends Controller
         if ($request->keyword) {
             $keyword = htmlspecialchars($request->keyword);
         }
-        if (!$request->status) {
-            $bills = Bill::where('Phone', 'LIKE', '%' . $keyword . '%')->orderBy('created_at', 'desc')->paginate(5);
-        } else {
+        $bills = Bill::where('Phone', 'LIKE', '%' . $keyword . '%');
+        if ($request->status) {
             $status = $this->bindStatus($request->status);
-            $bills = Bill::where('status', $status)->where('Phone', 'LIKE', '%' . $keyword . '%')->orderBy('created_at', 'desc')->paginate(5);
-        }
+            $bills = $bills->where('status', $status);
+        } 
+        $bills = $bills->orderBy('created_at', 'desc')->paginate(5);
         return view('backend.contents.order.index', compact('bills', 'now'));
     }
     public function detail($id)
