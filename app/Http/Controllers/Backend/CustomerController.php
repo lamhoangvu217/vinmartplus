@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class CustomerController extends Controller
 {
     public function index() {
-        $customers = User::paginate(1);
+        $customers = User::paginate(5);
         return view('backend.contents.customer.index', compact('customers'));
     }
 }

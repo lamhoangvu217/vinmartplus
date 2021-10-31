@@ -21,10 +21,10 @@ class OrderController extends Controller
             $keyword = htmlspecialchars($request->keyword);
         }
         if (!$request->status) {
-            $bills = Bill::where('phone', 'LIKE', '%' . $keyword . '%')->orderBy('created_at', 'desc')->paginate(5);
+            $bills = Bill::where('phone', 'LIKE', '%' . $keyword . '%')->paginate(5);
         } else {
             $status = $this->bindStatus($request->status);
-            $bills = Bill::where('status', $status)->where('phone', 'LIKE', '%' . $keyword . '%')->orderBy('created_at', 'desc')->paginate(5);
+            $bills = Bill::where('status', $status)->where('phone', 'LIKE', '%' . $keyword . '%')->paginate(5);
         }
         return view('backend.contents.order.index', compact('bills', 'now'));
     }
