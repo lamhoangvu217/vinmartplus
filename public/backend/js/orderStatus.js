@@ -4,7 +4,7 @@ $("select#order-status").change(function() {
     let _token = $('input[name="_token"]').val();
     console.log(id + '' + status + '' + _token)
     $.ajax({
-        url: "http://127.0.0.1:8000/admin/order/changeStatus",
+        url: "https://vinmart-nhom12.herokuapp.com/admin/order/changeStatus",
         type: "POST",
         data: {
             id: id,
