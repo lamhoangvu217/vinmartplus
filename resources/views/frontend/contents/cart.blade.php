@@ -16,6 +16,7 @@
                                         <tr>
                                             <th class="width-thumbnail">Hình ảnh </th>
                                             <th class="width-name">Tên sản phẩm</th>
+                                            
                                             <th class="width-price">Đơn giá</th>
                                             <th class="width-quantity">Giá đã giảm</th>
                                             <th class="width-quantity">Số lượng</th>

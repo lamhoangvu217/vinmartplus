@@ -26,7 +26,7 @@ class ProductController extends Controller
         $relatedProduct = Product::where('product_category_id', $product->product_category_id)->get();
         // dd($relatedProduct);
         // return $images;
-        return view('frontend.contents.product_detail', compact('product', 'images', 'categories', 'relatedProduct'));
+        return view('frontend.contents.product_detail', compact('product', 'images', 'categories', 'relatedProduct', 'id'));
     }
     public function renderHtml($array)
     {

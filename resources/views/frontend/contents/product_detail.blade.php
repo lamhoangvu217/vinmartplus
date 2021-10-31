@@ -60,11 +60,10 @@
                         </div>
 
                         <div class="product-details-action-wrap">
-                            <div class="product-quality">
-                                <input class="cart-plus-minus-box input-text qty text" name="qtybutton" value="1" />
-                            </div>
+                            
                             <div class="single-product-cart btn-hover">
-                                <a href="#">Add to cart</a>
+                                @csrf
+                                    <a href="#" onclick="return false;" data-url_addcart="{{ route('addtocart') }}" id="{{ $id }}" class="product-action-btn-2 add-cart" title="Add To Cart" ><i class="pe-7s-cart"></i> Add to cart</a>
                             </div>
                             <div class="single-product-wishlist">
                                 <a title="Wishlist" href="wishlist.html"><i class="pe-7s-like"></i></a>
