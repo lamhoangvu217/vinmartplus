@@ -17,14 +17,14 @@ class OrderController extends Controller
         Carbon::setLocale('vi'); // hiển thị ngôn ngữ tiếng việt.
         $now = Carbon::now();
         $keyword = '';
-        if ($request->keyword){
+        if ($request->keyword) {
             $keyword = htmlspecialchars($request->keyword);
         }
         if (!$request->status) {
-            $bills = Bill::where('phone', 'LIKE', '%' . $keyword . '%')->paginate(5);
+            $bills = Bill::where('Phone', 'LIKE', '%' . $keyword . '%')->paginate(5);
         } else {
             $status = $this->bindStatus($request->status);
-            $bills = Bill::where('status', $status)->where('phone', 'LIKE', '%' . $keyword . '%')->paginate(5);
+            $bills = Bill::where('status', $status)->where('Phone', 'LIKE', '%' . $keyword . '%')->paginate(5);
         }
         return view('backend.contents.order.index', compact('bills', 'now'));
     }
