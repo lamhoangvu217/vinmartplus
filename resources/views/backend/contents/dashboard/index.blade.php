@@ -32,9 +32,9 @@
                                             <div class="card-title mt-4">
                                                 <h6 class="title">Doanh thu tháng {{ $now }} </h6>
                                             </div>
-                                            {{-- <div class="doanhthu" style="color: #fff; font-size: 20px;">
+                                            <div class="doanhthu" style="color: #fff; font-size: 20px;">
                                                 {{ number_format($thismonth, 0, '', '.') }} đ
-                                            </div> --}}
+                                            </div>
                                         </div>
                                         
                                     </div><!-- .card-inner -->
