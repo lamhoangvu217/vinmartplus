@@ -17,7 +17,7 @@ class DashboardController extends Controller
         $x = DB::table('bills')->sum('total');
         $count = DB::table('bills')->count('id');
         $now = Carbon::now()->month; 
-        $thismonth = DB::table('bills')->whereMonth('created_at', $now)->where('status', 1)->sum('total');
+        // $thismonth = DB::table('bills')->whereMonth('created_at', $now)->where('status', 1)->sum('total');
         return view('backend.contents.dashboard.index', compact('products', 'customers', 'x', 'count', 'now', 'thismonth'));
     }
 }
