@@ -54,6 +54,11 @@ Route::group(['middleware' => ['auth:admin']], function () {
         Route::group(['prefix' => 'customer'], function () {
             Route::get('index', 'Backend\CustomerController@index')->name('customer.index');
         });
+        Route::group(['prefix' => 'promotion'], function () {
+            Route::get('index', 'Backend\PromotionController@index')->name('promotion.index');
+            Route::get('create', 'Backend\PromotionController@create')->name('promotion.create');
+            Route::post('submitcreate', 'Backend\PromotionController@submitcreate')->name('promotion.submitcreate');
+        });
         Route::group(['prefix' => 'order'], function () {
             Route::get('index', 'Backend\OrderController@index')->name('order.index');
             Route::get('detail/{id}', 'Backend\OrderController@detail')->name('order.detail');

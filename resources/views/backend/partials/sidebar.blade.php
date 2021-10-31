@@ -34,6 +34,12 @@
                         </a>
                     </li><!-- .nk-menu-item -->
                     <li class="nk-menu-item">
+                        <a href="{{ route('promotion.index') }}" class="nk-menu-link">
+                            <span class="nk-menu-icon"><i class="fas fa-box-open"></i></span>
+                            <span class="nk-menu-text">Khuyến mãi</span>
+                        </a>
+                    </li><!-- .nk-menu-item -->
+                    <li class="nk-menu-item">
                         <a href="{{ route('product.index')}}" class="nk-menu-link">
                             <span class="nk-menu-icon"><i class="fas fa-cube"></i></span>
                             <span class="nk-menu-text">Sản phẩm</span>
