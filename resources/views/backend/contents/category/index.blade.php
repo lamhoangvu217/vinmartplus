@@ -15,12 +15,7 @@
                                 <a href="#" class="btn btn-icon btn-trigger toggle-expand mr-n1" data-target="more-options"><em class="icon ni ni-more-v"></em></a>
                                 <div class="toggle-expand-content" data-content="more-options">
                                     <ul class="nk-block-tools g-3">
-                                        <li>
-                                            <div class="form-control-wrap">
-                                                
-                                                <input type="text" class="form-control" id="default-04" placeholder="Search by name">
-                                            </div>
-                                        </li>
+                                        
                                         <li class="nk-block-tools-opt">
                                             
                                             <a href="{{ route('category.create')}}" class="btn btn-primary d-none d-md-inline-flex"><i class="fas fa-plus"></i><span>Add Category</span></a>
