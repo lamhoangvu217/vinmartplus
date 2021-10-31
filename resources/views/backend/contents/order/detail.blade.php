@@ -104,18 +104,9 @@
                                                             
                                                                 <span class="profile-ud-label">Trạng thái đơn hàng</span>
                                                             
-                                                                <select class="form-select" data-id="{{ $bill->id }}" id="order-status">
-                                                                    @if ($bill->Status === 0)
-                                                                        <option value="0" selected>Đang xử lý</option>
-                                                                        <option value="1">Đã hoàn thành</option>
-                                                                    @else
-                                                                        <option value="1" selected>Đã hoàn thành</option>
-                                                                        <option value="0" >Đang xử lý</option>
-                                                                    @endif
-                                                                    
-                                                                    {{-- <option selected>Đang xử lý</option>
-                                                                    <option>Đã hoàn thành</option> --}}
-                                                                    {{-- <option value="1">Đã hoàn thành</option>                                           --}}
+                                                                <select class="form-select" data-id="{{ $bill->id }}" id="order-status">                                                             
+                                                                    <option value="0" {{ $bill->Status == '0' ? 'selected' : ''}}>Đang xử lý</option>
+                                                                    <option value="1" {{ $bill->Status == '1' ? 'selected' : ''}}>Đã hoàn thành</option>
                                                                 </select>
                                                             
                                                         </div>

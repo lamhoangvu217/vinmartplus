@@ -37,7 +37,7 @@ class OrderController extends Controller
     public function changeStatus(Request $request)
     {
         $check = Bill::where('id', $request->id)->update(['Status' => $request->status]);
-        if ($check == 1) {
+        if ($check == '1') {
             return 'success';
         } else {
             return 'error';
