@@ -14,7 +14,7 @@ class AddTotalToBillsTable extends Migration
     public function up()
     {
         Schema::table('bills', function (Blueprint $table) {
-            $table->biginteger("total")->after('email');
+            $table->biginteger("total")->nullable()->default(null)->after('email');
         });
     }
 
