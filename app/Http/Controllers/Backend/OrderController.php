@@ -23,8 +23,8 @@ class OrderController extends Controller
         $bills = Bill::where('Phone', 'LIKE', '%' . $keyword . '%');
         if ($request->status) {
             $status = $this->bindStatus($request->status);
-            $bills = $bills->where('status', $status);
-        } 
+            $bills = $bills->where('Status', $status);
+        }
         $bills = $bills->orderBy('created_at', 'desc')->paginate(5);
         return view('backend.contents.order.index', compact('bills', 'now'));
     }
