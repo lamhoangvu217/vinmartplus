@@ -53,7 +53,7 @@
                             @else
                                 <span class="old-price"> {{ number_format($product->price, 0, '', '.') }} đ </span>
                                 <span class="new-price">
-                                    {{ number_format(($product->price * $product->promotion->percent) / 100, 0, '', '.') }}
+                                    {{ number_format($product->price - ($product->price * $product->promotion->percent) / 100, 0, '', '.') }}
                                     đ
                                 </span>
                             @endif
@@ -147,7 +147,7 @@
                                         <span class="old-price-current"> {{ number_format($relatedItem->price, 0, '', '.') }} đ </span>
                                     @else
                                         <span class="old-price"> {{ number_format($relatedItem->price, 0, '', '.') }} đ </span>
-                                        <span class="new-price"> {{ number_format(($relatedItem->price*$product->promotion->percent)/100, 0, '', '.') }} đ </span>
+                                        <span class="new-price"> {{ number_format($relatedItem->price - ($relatedItem->price*$product->promotion->percent)/100, 0, '', '.') }} đ </span>
                                     @endif
                                 </div>
                             </div>
