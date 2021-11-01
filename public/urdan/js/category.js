@@ -1,7 +1,7 @@
 $("select.category").change(function() {
     let id = $(this).val();
     $.ajax({
-        url: "http://127.0.0.1:8000/render-product",
+        url: "https://vinmart-nhom12.herokuapp.com/render-product",
         type: "GET",
         data: {
             id: id
