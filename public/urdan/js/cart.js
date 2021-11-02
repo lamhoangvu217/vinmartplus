@@ -89,43 +89,47 @@ $(".remove-cart").click(function() {
     let rowId = $(this).attr("id");
     let _token = $('input[name="_token"]').val();
     let url_delete = $(this).data("url_delete");
-    // console.log(rowId + ' ' + _token + ' ' + url_delete + ' ');
-    $.ajax({
-        url: url_delete,
-        type: "POST",
-        data: {
-            rowId: rowId,
-            _token: _token
-        }
-    }).done(function(data) {
+    var i =this.parentNode.parentNode.rowIndex;
     
-        if (data.status == "success") {
-            if(data.total ==0){
-                $("a.checkout").addClass("disabled");
-                window.location.reload();
-            }
-            $("span.product-count").html(data.count);
-            $("span.total").html(data.total + " đ");
-            swal(data.status, data.message, "success");
-            // swal({
-            //     title: "Bạn có chắc chắn muốn xóa không?",
-            //     text: "Một khi đã khóa bạn sẽ không thể hoàn tác",
-            //     icon: "warning",
-            //     buttons: true,
-            //     dangerMode: true,
-            //   })
-            //   .then((willDelete) => {
-            //     if (willDelete) {
-            //       swal("Xóa thành công !!!", {
-            //         icon: "success",
-            //       });
-            //     } else {
-            //       swal("Your imaginary file is safe!");
-            //     }
-            //   });
-        } else {
-            swal(data.status, data.message, "error");
-        }
+    
+ 
+            swal({
+                title: "Bạn có chắc chắn muốn xóa không?",
+                text: "Một khi đã khóa bạn sẽ không thể hoàn tác",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+              })
+              .then((willDelete) => {
+                if (willDelete) {
+                    $.ajax({
+                        url: url_delete,
+                        type: "POST",
+                        data: {
+                            rowId: rowId,
+                            _token: _token
+                        }
+                    }).done(function(data) {
+                    
+                        if (data.status == "success") {
+                            if(data.total ==0){
+                                $("a.checkout").addClass("disabled");
+                            }
+                            $("span.product-count").html(data.count);
+                            $("span.total").html(data.total + " đ");
+                            swal(data.status, data.message, "success");
+                           
+                            document.getElementById("cart-table").deleteRow(i);
+                            swal("Xóa thành công !!!", {
+                             icon: "success",
+                              }
+                            
+                  );
+                } else {
+                  swal("Your imaginary file is safe!");
+                }
+              });
+        } 
     });
 });
 function checkout(a) {
@@ -137,4 +141,5 @@ function checkout(a) {
         window.location = "/checkout";
     }
 }
+
 

@@ -54,7 +54,8 @@
                                             </td>
                                             {{-- <td class="product-total"><span class="{{ $x->rowId }}">{{ number_format($x->price - ($x->price * $x->options->discount)/100 , 0,'', '.') }} đ</span></td> --}}
                                             <td class="product-total"><span class="{{ $x->rowId }}">{{ number_format($x->subtotal , 0,'', '.') }} đ</span></td>
-                                            <td class="product-remove"><span onclick="deleteRow(this)" href="#"  data-index="{{ $t }}" data-url_delete="{{ route('removefromcart') }}" id="{{ $x->rowId }}" class="remove-cart" ><i class=" ti-trash "></i></span></td>
+                                           
+                                            <td class="product-remove"><span  href="#"  data-index="{{ $t }}" data-url_delete="{{ route('removefromcart') }}" id="{{ $x->rowId }}" class="remove-cart" ><i class=" ti-trash "></i></span></td>
                                             
                                         </tr>
                                     
@@ -79,7 +80,7 @@
                                     
                                     <div class="cart-clear-wrap">
                                         <div class="cart-clear btn-hover" >
-                                            <a href="#" class="checkout"  onclick="checkout({{Cart::content()->count()}})"   >Thanh toán</a>
+                                            <a href="#" class="checkout"  onclick="checkout({{Cart::content()->count()}})">Thanh toán</a>
                                         </div>
                                     </div>
                                 </div>
@@ -95,11 +96,6 @@
         </div>
     </div>
 </div>
-<script>
-    function deleteRow(r) {
-        var i =r.parentNode.parentNode.rowIndex;
-        document.getElementById("cart-table").deleteRow(i);
-    }
-</script>
+
 @endsection
 
