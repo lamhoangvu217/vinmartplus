@@ -1,10 +1,11 @@
+
 $(".qty").change(function() {
     let rowId = $(this).data("row_id");
     let qty = $(this).val();
     let _token = $('input[name="_token"]').val();
     let index = $(this).data("index");
     let url_update = $(this).data("url_update");
-    if(qty==0){
+    if (qty == 0) {
         var r = confirm("Bạn có muốn xóa sản phẩm không ???");
         if (r == true) {
             $.ajax({
@@ -21,14 +22,13 @@ $(".qty").change(function() {
                 $("span.total").html(data.total + " đ");
                 $("span.product-count").html(data.count);
                 document.getElementById("cart-table").deleteRow(index);
-                 $("a.checkout").addClass("disabled");
+                $("a.checkout").addClass("disabled");
                 swal(data.status, data.message, "success");
             });
         } else {
-           return false;
+            return false;
         }
-    }
-    else {
+    } else {
         $.ajax({
             url: url_update,
             type: "POST",
@@ -42,11 +42,8 @@ $(".qty").change(function() {
             $("span." + rowId).html(subtotal);
             $("span.total").html(data.total + " đ");
             $("span.product-count").html(data.count);
-            
         });
     }
-  
-   
 });
 
 $(".add-cart").click(function() {
@@ -64,27 +61,26 @@ $(".add-cart").click(function() {
         if (data.status == "success") {
             $("span.product-count").html(data.count);
             swal(data.status, data.message, "success");
-        } else if (data.status == 'error') {
+        } else if (data.status == "error") {
             swal(data.status, data.message, "error");
         } else {
             swal(data.message, {
                 buttons: {
-                  cancel: "Không mua nữa :)",
-                  catch: {
-                    text: "Đăng nhập",
-                    value: "catch",
-                  },
-                },
-              })
-              .then((value) => {
-                switch (value) {
-                  case "catch":
-                    window.location = '/login';
-                    break;              
-                  default:
-                    swal("Mua đi đm");
+                    cancel: "Không mua nữa :)",
+                    catch: {
+                        text: "Đăng nhập",
+                        value: "catch"
+                    }
                 }
-              });
+            }).then(value => {
+                switch (value) {
+                    case "catch":
+                        window.location = "/login";
+                        break;
+                    default:
+                        swal("Mua đi đm");
+                }
+            });
         }
     });
 });
@@ -132,13 +128,13 @@ $(".remove-cart").click(function() {
         }
     });
 });
-function checkout(a){
-    if (a==0)
-    {
+function checkout(a) {
+    if (a == 0) {
         swal("Bạn chưa có sản phẩm nào trong giỏ hàng?", {
-            buttons: ["Okee!", "Cancel!"],
-          });
-    }else{
-        window.location="/checkout";
+            buttons: ["Okee!", "Cancel!"]
+        });
+    } else {
+        window.location = "/checkout";
     }
 }
+

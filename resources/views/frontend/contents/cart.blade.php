@@ -95,11 +95,11 @@
         </div>
     </div>
 </div>
-<script>  
-function deleteRow(r) {
-  var i =r.parentNode.parentNode.rowIndex;
-  document.getElementById("cart-table").deleteRow(i);
-}
+<script>
+    function deleteRow(r) {
+        var i =r.parentNode.parentNode.rowIndex;
+        document.getElementById("cart-table").deleteRow(i);
+    }
 </script>
 @endsection
 
