@@ -63,6 +63,7 @@ Route::group(['middleware' => ['auth:admin']], function () {
             Route::get('index', 'Backend\OrderController@index')->name('order.index');
             Route::get('detail/{id}', 'Backend\OrderController@detail')->name('order.detail');
             Route::post('changeStatus', 'Backend\OrderController@changeStatus')->name('order.change');
+            Route::post('cancelOrder', 'Backend\OrderController@cancelOrder')->name('order.cancel');
         });
         Route::group(['prefix' => 'employee'], function () {
             Route::get('index', 'Backend\EmployeeController@index')->name('employee.index');

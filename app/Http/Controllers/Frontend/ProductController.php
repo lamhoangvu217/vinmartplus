@@ -56,7 +56,7 @@ class ProductController extends Controller
                 $html .= '<span class="old-price-current"> ' . number_format($product->price, 0, '', '.') . ' đ </span>';
             } else {
                 $html .= '<span class="old-price"> ' . number_format($product->price, 0, '', '.') . ' đ </span>
-                                            <span class="new-price"> ' . number_format(($product->price * $product->promotion->percent) / 100, 0, '', '.') . ' đ </span>';
+                                            <span class="new-price"> ' . number_format($product->price - ($product->price * $product->promotion->percent) / 100, 0, '', '.') . ' đ </span>';
             };
 
             $html .= '
@@ -92,7 +92,8 @@ class ProductController extends Controller
         return $html;
     }
 
-    public function searchProduct(Request $request){
+    public function searchProduct(Request $request)
+    {
         $keyword = $request->input('keyword');
         $products = Product::select('name')->where('name', 'LIKE', "%$keyword%")->get();
         return response()->json($products);

@@ -13,7 +13,7 @@
                                         class="text-primary small">Mã đơn hàng: {{ $bill->id }}</strong></h3>
                             </div>
                             <div class="nk-block-head-content">
-                                
+
                                 <a href="{{ route('order.index') }}"
                                     class="btn btn-outline-light bg-white d-none d-sm-inline-flex"><span>Back</span></a>
                                 {{-- <a href="html/ecommerce/customers.html"
@@ -31,7 +31,7 @@
                                             <a class="nav-link active" href="#"><i
                                                     class="fas fa-user-tag mr-1"></i><span>Thông tin đơn hàng</span></a>
                                         </li>
-                                        
+
                                         {{-- <li class="nav-item">
                                             <a class="nav-link" href="#"><em class="icon ni ni-repeat"></em><span>Đơn
                                                     hàng</span></a>
@@ -54,15 +54,24 @@
                                             <div class="nk-block-head">
                                                 <div class="row">
                                                     <div class="col-10">
-                                                        <h5 class="title">Thông tin đơn hàng <span style="color: red;">{{ $bill->Status == '2' ? '(Đơn hàng đã hủy)' : ''}}</span></h5>
+                                                        <h5 class="title">Thông tin đơn hàng <span
+                                                                style="color: red;">{{ $bill->Status == '2' ? '(Đơn hàng đã hủy)' : '' }}</span>
+                                                        </h5>
                                                         <p>Thông tin cơ bản, như tên và địa chỉ giao hàng</p>
                                                     </div>
                                                     <div class="col-2">
-                                                        <button {{ $bill->Status == '2' ? 'disabled' : ''}} class="btn btn-danger">Hủy đơn hàng</button>
+                                                        <form action="" method="POST">
+                                                            @csrf
+                                                            <button type="button" data-id="{{ $bill->id }}"
+                                                                value="2"
+                                                                {{ $bill->Status == '2' ? 'disabled' : '' }}
+                                                                id="cancelOrder" class="btn btn-danger">Hủy đơn
+                                                                hàng</button>
+                                                        </form>
 
                                                     </div>
                                                 </div>
-                                                
+
                                             </div><!-- .nk-block-head -->
                                             <div class="profile-ud-list">
                                                 <div class="profile-ud-item">
@@ -83,7 +92,7 @@
                                                         <span class="profile-ud-value">{{ $bill->Address }}</span>
                                                     </div>
                                                 </div>
-                                                
+
                                                 <div class="profile-ud-item">
                                                     <div class="profile-ud wider">
                                                         <span class="profile-ud-label">Ngày đặt hàng</span>
@@ -101,14 +110,20 @@
                                                     <form action="" method="POST">
                                                         @csrf
                                                         <div class="profile-ud wider">
-                                                            
-                                                                <span class="profile-ud-label">Trạng thái đơn hàng</span>
-                                                            
-                                                                <select class="form-select" data-id="{{ $bill->id }}" id="order-status">                                                             
-                                                                    <option value="0" {{ $bill->Status == '0' ? 'selected' : ''}}>Đang xử lý</option>
-                                                                    <option value="1" {{ $bill->Status == '1' ? 'selected' : ''}}>Đã hoàn thành</option>
-                                                                </select>
-                                                            
+
+                                                            <span class="profile-ud-label">Trạng thái đơn hàng</span>
+
+                                                            <select class="form-select" data-id="{{ $bill->id }}"
+                                                                {{ $bill->Status == '2' ? 'disabled' : '' }}
+                                                                id="order-status">
+                                                                <option value="0"
+                                                                    {{ $bill->Status == '0' ? 'selected' : '' }}>Đang xử
+                                                                    lý</option>
+                                                                <option value="1"
+                                                                    {{ $bill->Status == '1' ? 'selected' : '' }}>Đã hoàn
+                                                                    thành</option>
+                                                            </select>
+
                                                         </div>
                                                     </form>
                                                 </div>
@@ -143,21 +158,24 @@
                                                                 <td>{{ $item->product->price }}</td>
                                                                 <td>{{ $item->qty }}</td>
                                                                 <td>{{ $item->product->promotion->percent }}%</td>
-                                                                
+
                                                                 <td>{{ number_format($item->total, 0, '', '.') }} đ</td>
 
                                                                 {{-- <td>otto</td> --}}
                                                             </tr>
-                                                           
+
                                                         @endforeach
                                                         <tr>
-                                                            
-                                                                <td colspan="5" >
-                                                                    <div style="float: right; margin-right:105px; font-size: 25px; font-weight: bold;">
-                                                                        Tổng tiền: {{ number_format($billdetail->sum('total'), 0, '', '.') }} đ 
-                                                                    </div>
-                                                                </td>
-                                                           
+
+                                                            <td colspan="5">
+                                                                <div
+                                                                    style="float: right; margin-right:105px; font-size: 25px; font-weight: bold;">
+                                                                    Tổng tiền:
+                                                                    {{ number_format($billdetail->sum('total'), 0, '', '.') }}
+                                                                    đ
+                                                                </div>
+                                                            </td>
+
                                                         </tr>
                                                     </tbody>
                                                 </table>

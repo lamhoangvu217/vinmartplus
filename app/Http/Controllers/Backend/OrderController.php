@@ -43,6 +43,18 @@ class OrderController extends Controller
             return 'error';
         }
     }
+    public function cancelOrder(Request $request)
+    {
+        $status = $request->status;
+        $update = Bill::where('id', $request->id);
+
+        if ($status == '2') {
+            $update->update(['Status' => $request->status]);
+            return 'success';
+        } else {
+            return 'error';
+        }
+    }
     public function bindStatus($status)
     {
         if ($status == 'dang-xu-ly') {

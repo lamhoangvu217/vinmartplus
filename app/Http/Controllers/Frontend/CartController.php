@@ -14,7 +14,7 @@ class CartController extends Controller
     {
         $data = Cart::content();
         $product = Product::find($request->id);
-        
+
         return view('frontend.contents.cart', compact('data', 'product'));
     }
 
@@ -34,9 +34,9 @@ class CartController extends Controller
                         'thumbnail' => $product->thumbnail,
                         'discount' => $product->promotion->percent,
                         'oldPrice' => $product->price,
-                        'max' =>$product->qty
+                        'max' => $product->qty
                     ],
-    
+
                 ]
             );
             if ($status) {
@@ -58,13 +58,13 @@ class CartController extends Controller
                 'status' => 'notauthorize'
             ];
         }
-        
+
         // return $product->promotion;
 
     }
     public  function removeCart(Request $request)
     {
-      
+
         Cart::remove($request->rowId);
         return [
             'message' => 'Xóa sản phẩm thành công !',
@@ -76,7 +76,7 @@ class CartController extends Controller
     }
     public function updateCart(Request $request)
     {
-        if($request->qty ==0){
+        if ($request->qty == 0) {
             Cart::remove($request->rowId);
             return [
                 'message' => 'Xóa sản phẩm thành công !',
@@ -85,18 +85,17 @@ class CartController extends Controller
                 'status' => 'success',
                 'total' => Cart::total(),
             ];
-        }else
-       {
-        Cart::update($request->rowId, $request->qty);
+        } else {
+            Cart::update($request->rowId, $request->qty);
 
-        $cart = Cart::get($request->rowId);
-        $subtotal = number_format($cart->subtotal, 0, '', '.');
-        $data = [
-            'cart' => $cart,
-            'total' => Cart::total(),
-            'subtotal' => $subtotal
-        ];
-        return $data;
-       }
+            $cart = Cart::get($request->rowId);
+            $subtotal = number_format($cart->subtotal, 0, '', '.');
+            $data = [
+                'cart' => $cart,
+                'total' => Cart::total(),
+                'subtotal' => $subtotal
+            ];
+            return $data;
+        }
     }
 }

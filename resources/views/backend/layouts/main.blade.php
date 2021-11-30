@@ -113,6 +113,7 @@
     <script src="{{ asset('/backend/js/scripts.js?ver=2.4.0') }}"></script>
     <script src="{{ asset('/backend/js/charts/chart-ecommerce.js?ver=2.4.0') }}"></script>
     <script src="{{ asset('/backend/js/orderStatus.js')}}"></script>
+    
 </body>
 
 </html>
