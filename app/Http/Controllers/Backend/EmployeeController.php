@@ -7,7 +7,7 @@ use App\Http\Requests\EmployeeRequest;
 use App\Models\Admin;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
-
+use Illuminate\Support\Facades\Hash;
 class EmployeeController extends Controller
 {
     public function index()
@@ -22,7 +22,14 @@ class EmployeeController extends Controller
     public function submitcreate(EmployeeRequest $res)
     {
         $data = $res->all();
-        $new_post = Admin::create($data);
+        // $new_post=Admin::create([
+        //     'name' => $data['name'],
+        //     'email' => $data['email'],
+        //     'password' => Hash::make($data['password']),
+        // ]); 
+        unset($data['_token']);
+        $data['password']=Hash::make($res->password);
+        $new_post =Admin::create($data);
         if ($new_post) {
             return Redirect::to('admin/employee/index');
         } else {
