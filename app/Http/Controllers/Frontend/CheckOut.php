@@ -21,7 +21,6 @@ class CheckOut extends Controller
     public function FinishShopping(CheckingInfoRequest $res)
     {
         $data = $res->all();
-
         $new_bill = Bill::create($data);
         $total = 0;
         foreach (Cart::content() as $product) {
@@ -33,7 +32,7 @@ class CheckOut extends Controller
                 'total' => $product->price * $product->qty
             ];
             Billdetail::create($detail);
-            $total += $product->price;
+            $total += $product->price *$product->qty;
         }
         // dd($total);
         Bill::where('id', $new_bill->id)->update(['total' => $total]);
