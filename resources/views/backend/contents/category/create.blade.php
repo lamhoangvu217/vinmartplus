@@ -21,7 +21,7 @@
                     <div class="nk-block">
                         <form action="{{ route('category.store') }}" method="POST" enctype="multipart/form-data">
                             
-                            {{ csrf_field() }}
+                            {{ csrf_field() }} 
                             <div class="row g-3">
                                 <div class="col-12">
                                     <div class="form-group">

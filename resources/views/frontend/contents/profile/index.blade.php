@@ -15,7 +15,7 @@
                             <div class="col-lg-3 col-md-4">
                                 <div class="myaccount-tab-menu nav" role="tablist">
                                     <a href="#account-info" class="active" data-bs-toggle="tab">Thông tin tài khoản</a>
-                                    <a href="#orders" data-bs-toggle="tab">Đơn hàng</a>
+                                    
 
                                     
 

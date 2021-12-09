@@ -25,7 +25,7 @@ class OrderController extends Controller
             $status = $this->bindStatus($request->status);
             $bills = $bills->where('Status', $status);
         }
-        $bills = $bills->orderBy('created_at', 'desc')->paginate(5);
+        $bills = $bills->orderBy('created_at', 'desc')->paginate(7);
         return view('backend.contents.order.index', compact('bills', 'now'));
     }
     public function detail($id)

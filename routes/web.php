@@ -53,6 +53,7 @@ Route::group(['middleware' => ['auth:admin']], function () {
     Route::group(['prefix' => 'admin'], function () {
         Route::group(['prefix' => 'customer'], function () {
             Route::get('index', 'Backend\CustomerController@index')->name('customer.index');
+            Route::get('delete/{id}', 'Backend\CustomerController@delete')->name('customer.delete');
         });
         Route::group(['prefix' => 'promotion'], function () {
             Route::get('index', 'Backend\PromotionController@index')->name('promotion.index');
