@@ -22,7 +22,7 @@
                                                     </div>
                                                     <form action="" method="GET">
                                                         <input type="text" class="form-control" id="search-order"
-                                                            placeholder="Quick search by id" name="keyword">
+                                                            placeholder="Tìm đơn theo sđt" name="keyword">
                                                     </form>
                                                 </div>
                                             </li>

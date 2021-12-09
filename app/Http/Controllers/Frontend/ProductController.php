@@ -13,7 +13,7 @@ class ProductController extends Controller
 {
     public function product(Request $request)
     {
-        $products = Product::paginate(10);
+        $products = Product::paginate(8);
         $categories = ProductCategory::select('id', 'name')->get();
         return view('frontend.contents.shopping', compact('products', 'categories'));
     }
@@ -79,18 +79,7 @@ class ProductController extends Controller
         $html = $this->renderHtml($products);
         return $html;
     }
-    public function renderProductBySearch(Request $request)
-    {
-        if ($request->get('inputVal') === '') {
-            $data = Product::paginate(10);
-            $html = $this->renderHtml($data);
-        } else {
-            $inputVal = $request->get('inputVal');
-            $data = Product::where('name', 'LIKE', '%' . $inputVal . '%')->get();
-            $html = $this->renderHtml($data);
-        }
-        return $html;
-    }
+    
 
     public function searchProduct(Request $request)
     {

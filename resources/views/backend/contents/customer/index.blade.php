@@ -66,10 +66,8 @@
                                         <div class="drodown">
                                             <a href="#" class="dropdown-toggle btn btn-icon btn-trigger" data-toggle="dropdown"><i class="fas fa-caret-down"></i></a>
                                             <div class="dropdown-menu dropdown-menu-right">
-                                                <ul class="link-list-opt no-bdr">
-                                                    <li><a href="html/ecommerce/customer-details.html"><i class="fas fa-eye"></i><span>View Details</span></a></li>
-                                                    
-                                                    <li><a href="#"><i class="fas fa-ban"></i><span>Suspend</span></a></li>
+                                                <ul class="link-list-opt no-bdr">     
+                                                    <li><a href="{{ route('customer.delete', $customer->id) }}"><span>Xóa khách hàng</span></a></li>
                                                 </ul>
                                             </div>
                                         </div>
