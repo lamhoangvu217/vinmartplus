@@ -74,6 +74,9 @@
                                         <div class="form-control-wrap">
                                             <input type="text" name="usage" class="form-control" id="SKU">
                                         </div>
+                                        @error('usage')
+                                            <span class="text-danger">{{ $message }}</span>
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="col-6">
@@ -106,6 +109,9 @@
                                                 placeholder="Nhập thông tin chi tiết sản phẩm" id="detailarea"
                                                 style="height: 100px"></textarea>
                                         </div>
+                                        @error('detail')
+                                            <span class="text-danger">{{ $message }}</span>
+                                        @enderror
                                     </div>
                                 </div>
 
